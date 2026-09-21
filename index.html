@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Pamela & Carlos | Nuestra Boda</title>
+  <title>Carlos & Pamela | Nuestra Boda</title>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
@@ -35,33 +35,219 @@
       overflow-x: hidden;
     }
 
-    /* PORTADA */
+    body.bloqueado {
+      overflow: hidden;
+    }
+
+
+    /* =========================================
+       PANTALLA PARA ABRIR LA INVITACIÓN
+    ========================================= */
+
+    .entrada {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(circle at center, #3d465f 0%, #171d29 75%);
+      z-index: 99999;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+      color: white;
+
+      padding: 25px;
+
+      transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+    }
+
+    .entrada.oculta {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .entrada-contenido {
+      width: 100%;
+      max-width: 550px;
+    }
+
+    .entrada-monograma {
+      width: 125px;
+      height: 125px;
+
+      margin: 0 auto 30px;
+
+      border: 1px solid var(--rosa-claro);
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+
+      color: var(--rosa-claro);
+    }
+
+    .entrada-pequeno {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 11px;
+      color: var(--rosa-claro);
+      margin-bottom: 15px;
+    }
+
+    .entrada h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(55px, 13vw, 90px);
+      font-weight: 500;
+      line-height: 0.9;
+    }
+
+    .entrada-amp {
+      display: block;
+      color: var(--rosa-claro);
+      font-size: 0.65em;
+      margin: 14px 0;
+    }
+
+    .entrada-fecha {
+      margin-top: 30px;
+
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 23px;
+      letter-spacing: 3px;
+    }
+
+    .boton-abrir {
+      margin-top: 38px;
+
+      border: 1px solid var(--rosa-claro);
+      background: transparent;
+      color: white;
+
+      padding: 16px 30px;
+
+      font-family: 'Montserrat', sans-serif;
+
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 10px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+    .boton-abrir:hover {
+      background: var(--rosa-claro);
+      color: var(--azul-oscuro);
+    }
+
+    .boton-abrir:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+
+    /* =========================================
+       REPRODUCTOR OCULTO
+    ========================================= */
+
+    .youtube-player {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      left: -100px;
+      bottom: -100px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .boton-musica {
+      position: fixed;
+
+      right: 18px;
+      bottom: 18px;
+
+      width: 52px;
+      height: 52px;
+
+      border-radius: 50%;
+
+      border: 1px solid var(--rosa-claro);
+
+      background: var(--azul-oscuro);
+      color: var(--rosa-claro);
+
+      font-size: 22px;
+
+      cursor: pointer;
+
+      z-index: 5000;
+
+      box-shadow: 0 4px 18px rgba(0,0,0,.25);
+
+      display: none;
+
+      transition: 0.3s;
+    }
+
+    .boton-musica:hover {
+      transform: scale(1.08);
+    }
+
+
+    /* =========================================
+       PORTADA
+    ========================================= */
+
     .hero {
       min-height: 100vh;
+
       background:
         linear-gradient(rgba(23,29,41,.70), rgba(23,29,41,.70)),
         linear-gradient(135deg, #171d29, #3d465f);
+
       display: flex;
       flex-direction: column;
+
       justify-content: center;
       align-items: center;
+
       text-align: center;
+
       padding: 30px 20px;
+
       color: white;
+
       position: relative;
     }
 
     .monograma {
       width: 115px;
       height: 115px;
+
       border: 1px solid var(--rosa-claro);
       border-radius: 50%;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       font-family: 'Cormorant Garamond', serif;
       font-size: 45px;
+
       margin-bottom: 28px;
+
       color: var(--rosa-claro);
     }
 
@@ -74,176 +260,272 @@
 
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
+
       font-size: clamp(60px, 14vw, 115px);
+
       font-weight: 500;
+
       line-height: .8;
     }
 
     .hero .amp {
       color: var(--rosa-claro);
+
       font-size: .65em;
+
       display: block;
+
       margin: 15px 0;
     }
 
     .fecha {
       margin-top: 35px;
+
       font-family: 'Cormorant Garamond', serif;
+
       font-size: 24px;
+
       letter-spacing: 3px;
     }
 
     .scroll {
       position: absolute;
+
       bottom: 25px;
+
       font-size: 12px;
+
       letter-spacing: 2px;
+
       opacity: .8;
+
       animation: subirBajar 2s infinite;
     }
 
     @keyframes subirBajar {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
+
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(8px);
+      }
+
     }
 
-    /* SECCIONES */
+
+    /* =========================================
+       SECCIONES
+    ========================================= */
+
     section {
       padding: 80px 20px;
     }
 
     .contenedor {
       max-width: 900px;
+
       margin: auto;
+
       text-align: center;
     }
 
     .subtitulo {
       text-transform: uppercase;
+
       letter-spacing: 4px;
+
       font-size: 11px;
+
       color: var(--rosa);
+
       margin-bottom: 12px;
     }
 
     h2 {
       font-family: 'Cormorant Garamond', serif;
+
       font-size: clamp(42px, 10vw, 65px);
+
       font-weight: 500;
+
       margin-bottom: 25px;
     }
 
     .texto {
       max-width: 650px;
+
       margin: auto;
+
       line-height: 1.9;
+
       font-size: 15px;
     }
 
     .ornamento {
       font-family: 'Cormorant Garamond', serif;
+
       color: var(--rosa);
+
       font-size: 35px;
+
       margin: 25px 0;
     }
 
-    /* MENSAJE */
+
+    /* =========================================
+       MENSAJE
+    ========================================= */
+
     .mensaje {
       background: var(--blanco);
     }
 
     .mensaje .frase {
       font-family: 'Cormorant Garamond', serif;
+
       font-size: 30px;
+
       line-height: 1.4;
+
       max-width: 650px;
+
       margin: auto;
+
       font-style: italic;
     }
 
-    /* CONTADOR */
+
+    /* =========================================
+       CUENTA REGRESIVA
+    ========================================= */
+
     .contador-seccion {
       background: var(--azul-oscuro);
+
       color: white;
     }
 
     .contador {
       display: grid;
+
       grid-template-columns: repeat(4, 1fr);
+
       max-width: 650px;
+
       margin: 40px auto 0;
+
       gap: 10px;
     }
 
     .numero {
       font-family: 'Cormorant Garamond', serif;
+
       font-size: clamp(38px, 9vw, 65px);
+
       color: var(--rosa-claro);
     }
 
     .etiqueta {
       font-size: 10px;
+
       text-transform: uppercase;
+
       letter-spacing: 2px;
     }
 
-    /* EVENTOS */
+
+    /* =========================================
+       CEREMONIA Y RECEPCIÓN
+    ========================================= */
+
     .eventos {
       background: var(--marfil);
     }
 
     .tarjetas {
       display: grid;
+
       grid-template-columns: repeat(2, 1fr);
+
       gap: 25px;
+
       margin-top: 40px;
     }
 
     .tarjeta {
       background: white;
+
       padding: 45px 25px;
+
       border-radius: 3px;
+
       box-shadow: 0 8px 30px rgba(0,0,0,.06);
+
       border-top: 4px solid var(--rosa);
     }
 
     .icono {
       font-size: 32px;
+
       margin-bottom: 20px;
     }
 
     .tarjeta h3 {
       font-family: 'Cormorant Garamond', serif;
+
       font-size: 32px;
+
       margin-bottom: 15px;
     }
 
     .tarjeta p {
       font-size: 14px;
+
       line-height: 1.8;
+
       margin-bottom: 6px;
     }
 
     .boton {
       display: inline-block;
+
       margin-top: 22px;
+
       padding: 13px 24px;
+
       background: var(--azul-oscuro);
+
       color: white;
+
       text-decoration: none;
+
       text-transform: uppercase;
+
       letter-spacing: 2px;
+
       font-size: 10px;
+
       transition: .3s;
+
+      border: none;
+
+      cursor: pointer;
     }
 
     .boton:hover {
       background: var(--rosa);
     }
 
-    /* DRESS CODE */
+
+    /* =========================================
+       CÓDIGO DE VESTIMENTA
+    ========================================= */
+
     .vestimenta {
       background: var(--azul);
+
       color: white;
     }
 
@@ -253,96 +535,152 @@
 
     .formal {
       font-family: 'Cormorant Garamond', serif;
+
       font-size: 42px;
+
       color: var(--rosa-claro);
+
       margin: 20px 0;
     }
 
-    /* REGALO */
+
+    /* =========================================
+       PRESENTE
+    ========================================= */
+
     .regalo {
       background: white;
     }
 
     .regalo .frase-regalo {
       font-family: 'Cormorant Garamond', serif;
+
       font-size: 27px;
+
       max-width: 650px;
+
       margin: auto;
+
       line-height: 1.5;
     }
 
-    /* FOTOS */
+
+    /* =========================================
+       GALERÍA
+    ========================================= */
+
     .galeria {
       background: #f0ece6;
     }
 
     .fotos {
       display: grid;
+
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 35px;
+
+      gap: 15px;
+
+      margin-top: 40px;
     }
 
     .foto-placeholder {
       aspect-ratio: 3 / 4;
+
       border: 1px dashed var(--rosa);
-      background: rgba(255,255,255,.65);
+
+      background: rgba(255,255,255,.70);
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       padding: 15px;
+
       color: #777;
-      font-size: 12px;
+
+      font-size: 11px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
     }
 
-    /* CONFIRMACION */
+
+    /* =========================================
+       CONFIRMACIÓN
+    ========================================= */
+
     .confirmacion {
       background: var(--rosa-claro);
     }
 
     .confirmacion .boton {
-      font-size: 12px;
+      font-size: 11px;
+
       padding: 16px 30px;
     }
 
-    /* FOOTER */
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
     footer {
       padding: 65px 20px;
+
       background: var(--azul-oscuro);
+
       color: white;
+
       text-align: center;
     }
 
     footer h2 {
       color: var(--rosa-claro);
+
       margin-bottom: 10px;
     }
 
     footer p {
       font-size: 12px;
+
       letter-spacing: 2px;
     }
 
-    /* APARICIÓN AL BAJAR */
+
+    /* =========================================
+       ANIMACIONES
+    ========================================= */
+
     .revelar {
       opacity: 0;
+
       transform: translateY(35px);
+
       transition: all .8s ease;
     }
 
     .revelar.visible {
       opacity: 1;
+
       transform: translateY(0);
     }
 
-    /* CELULAR */
+
+    /* =========================================
+       CELULARES
+    ========================================= */
+
     @media (max-width: 650px) {
+
       .tarjetas {
         grid-template-columns: 1fr;
       }
 
       .fotos {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .contador {
@@ -352,28 +690,109 @@
       section {
         padding: 65px 18px;
       }
+
     }
+
   </style>
 </head>
 
-<body>
 
-  <!-- PORTADA -->
+<body class="bloqueado">
+
+
+  <!-- =========================================
+       PANTALLA INICIAL
+  ========================================== -->
+
+  <div class="entrada" id="entrada">
+
+    <div class="entrada-contenido">
+
+      <div class="entrada-monograma">
+        C&P
+      </div>
+
+      <p class="entrada-pequeno">
+        Nuestra boda
+      </p>
+
+      <h1>
+        Carlos
+
+        <span class="entrada-amp">
+          &
+        </span>
+
+        Pamela
+      </h1>
+
+      <p class="entrada-fecha">
+        19 · 12 · 2026
+      </p>
+
+      <button
+        id="abrirInvitacion"
+        class="boton-abrir"
+        disabled>
+
+        Cargando invitación...
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- REPRODUCTOR YOUTUBE -->
+
+  <div
+    id="youtube-player"
+    class="youtube-player">
+  </div>
+
+
+  <!-- BOTÓN PARA PAUSAR / REPRODUCIR -->
+
+  <button
+    id="botonMusica"
+    class="boton-musica"
+    title="Pausar o reproducir música">
+
+    ♫
+
+  </button>
+
+
+  <!-- =========================================
+       PORTADA PRINCIPAL
+  ========================================== -->
+
   <header class="hero">
 
     <div class="monograma">
-      P&C
+      C&P
     </div>
 
-    <p class="intro">Nuestra boda</p>
+    <p class="intro">
+      Nuestra boda
+    </p>
 
     <h1>
-      Pamela
-      <span class="amp">&</span>
+
       Carlos
+
+      <span class="amp">
+        &
+      </span>
+
+      Pamela
+
     </h1>
 
-    <p class="fecha">19 · 12 · 2026</p>
+    <p class="fecha">
+      19 · 12 · 2026
+    </p>
 
     <div class="scroll">
       DESLIZA ↓
@@ -382,64 +801,137 @@
   </header>
 
 
-  <!-- MENSAJE -->
+  <!-- =========================================
+       MENSAJE
+  ========================================== -->
+
   <section class="mensaje">
+
     <div class="contenedor revelar">
 
-      <p class="subtitulo">Llegó nuestro momento</p>
+      <p class="subtitulo">
+        Llegó nuestro momento
+      </p>
 
-      <h2>Nos Casamos</h2>
+      <h2>
+        Nos Casamos
+      </h2>
 
-      <div class="ornamento">❦</div>
+      <div class="ornamento">
+        ❦
+      </div>
 
       <p class="frase">
+
         “Hay momentos en la vida que son especiales por sí solos,
         pero compartirlos con las personas que queremos
         los convierte en inolvidables.”
+
       </p>
 
-      <div class="ornamento">❦</div>
+      <div class="ornamento">
+        ❦
+      </div>
 
       <p class="texto">
-        Después de compartir nuestra historia, nuestros sueños y nuestros
-        proyectos, hemos decidido comenzar juntos un nuevo capítulo.
+
+        Después de compartir nuestra historia, nuestros sueños
+        y nuestros proyectos, hemos decidido comenzar juntos
+        un nuevo capítulo.
+
         Nos hará muy felices que nos acompañes en uno de los días
         más importantes de nuestras vidas.
+
       </p>
 
     </div>
+
   </section>
 
 
-  <!-- CUENTA REGRESIVA -->
+  <!-- =========================================
+       CUENTA REGRESIVA
+  ========================================== -->
+
   <section class="contador-seccion">
 
     <div class="contenedor revelar">
 
-      <p class="subtitulo">Falta muy poco</p>
+      <p class="subtitulo">
+        Falta muy poco
+      </p>
 
-      <h2>Cuenta Regresiva</h2>
+      <h2>
+        Cuenta Regresiva
+      </h2>
 
       <div class="contador">
 
         <div>
-          <div class="numero" id="dias">00</div>
-          <div class="etiqueta">Días</div>
+
+          <div
+            class="numero"
+            id="dias">
+
+            00
+
+          </div>
+
+          <div class="etiqueta">
+            Días
+          </div>
+
         </div>
 
-        <div>
-          <div class="numero" id="horas">00</div>
-          <div class="etiqueta">Horas</div>
-        </div>
 
         <div>
-          <div class="numero" id="minutos">00</div>
-          <div class="etiqueta">Minutos</div>
+
+          <div
+            class="numero"
+            id="horas">
+
+            00
+
+          </div>
+
+          <div class="etiqueta">
+            Horas
+          </div>
+
         </div>
 
+
         <div>
-          <div class="numero" id="segundos">00</div>
-          <div class="etiqueta">Segundos</div>
+
+          <div
+            class="numero"
+            id="minutos">
+
+            00
+
+          </div>
+
+          <div class="etiqueta">
+            Minutos
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div
+            class="numero"
+            id="segundos">
+
+            00
+
+          </div>
+
+          <div class="etiqueta">
+            Segundos
+          </div>
+
         </div>
 
       </div>
@@ -449,28 +941,52 @@
   </section>
 
 
-  <!-- CEREMONIA Y RECEPCION -->
+  <!-- =========================================
+       CEREMONIA Y RECEPCIÓN
+  ========================================== -->
+
   <section class="eventos">
 
     <div class="contenedor revelar">
 
-      <p class="subtitulo">Acompáñanos</p>
+      <p class="subtitulo">
+        Acompáñanos
+      </p>
 
-      <h2>Nuestro Gran Día</h2>
+      <h2>
+        Nuestro Gran Día
+      </h2>
+
 
       <div class="tarjetas">
 
+
+        <!-- CEREMONIA -->
+
         <div class="tarjeta">
 
-          <div class="icono">♙</div>
+          <div class="icono">
+            ♙
+          </div>
 
-          <h3>Ceremonia</h3>
-
-          <p><strong>2:00 p. m.</strong></p>
+          <h3>
+            Ceremonia
+          </h3>
 
           <p>
-            Iglesia Parroquial<br>
+            <strong>
+              2:00 p. m.
+            </strong>
+          </p>
+
+          <p>
+
+            Iglesia Parroquial
+
+            <br>
+
             Tambor de Alajuela
+
           </p>
 
           <p>
@@ -480,11 +996,17 @@
         </div>
 
 
+        <!-- RECEPCIÓN -->
+
         <div class="tarjeta">
 
-          <div class="icono">◇</div>
+          <div class="icono">
+            ◇
+          </div>
 
-          <h3>Recepción</h3>
+          <h3>
+            Recepción
+          </h3>
 
           <p>
             Después de la ceremonia
@@ -497,8 +1019,11 @@
           <a
             class="boton"
             href="https://maps.app.goo.gl/CaPbQP1ztW61NnxFA"
-            target="_blank">
+            target="_blank"
+            rel="noopener">
+
             Ver ubicación
+
           </a>
 
         </div>
@@ -510,22 +1035,29 @@
   </section>
 
 
-  <!-- VESTIMENTA -->
+  <!-- =========================================
+       CÓDIGO DE VESTIMENTA
+  ========================================== -->
+
   <section class="vestimenta">
 
     <div class="contenedor revelar">
 
-      <p class="subtitulo">Código de vestimenta</p>
-
-      <h2>Dress Code</h2>
+      <h2>
+        Código de vestimenta
+      </h2>
 
       <p class="formal">
         Formal
       </p>
 
       <p class="texto">
+
         Queremos que esta celebración se vista de elegancia.
-        Agradecemos a nuestros invitados acompañarnos con vestimenta formal.
+
+        Agradecemos a nuestros invitados acompañarnos
+        con vestimenta formal.
+
       </p>
 
     </div>
@@ -533,20 +1065,31 @@
   </section>
 
 
-  <!-- REGALO -->
+  <!-- =========================================
+       PRESENTE
+  ========================================== -->
+
   <section class="regalo">
 
     <div class="contenedor revelar">
 
-      <p class="subtitulo">Un detalle especial</p>
+      <p class="subtitulo">
+        Un detalle especial
+      </p>
 
-      <h2>Con Cariño</h2>
+      <h2>
+        Con Cariño
+      </h2>
 
-      <div class="ornamento">❦</div>
+      <div class="ornamento">
+        ❦
+      </div>
 
       <p class="frase-regalo">
+
         Si desean tener un detalle con nosotros,
         puede ser en efectivo.
+
       </p>
 
     </div>
@@ -554,32 +1097,62 @@
   </section>
 
 
-  <!-- FOTOS -->
+  <!-- =========================================
+       GALERÍA
+  ========================================== -->
+
   <section class="galeria">
 
     <div class="contenedor revelar">
 
-      <p class="subtitulo">Nuestra historia</p>
+      <p class="subtitulo">
+        Nuestra historia
+      </p>
 
-      <h2>Momentos</h2>
+      <h2>
+        Nuestros Momentos
+      </h2>
 
       <p class="texto">
-        Muy pronto agregaremos aquí algunos de nuestros recuerdos favoritos.
+
+        Algunos recuerdos de nuestra historia
+        y del camino que nos ha traído hasta aquí.
+
       </p>
+
 
       <div class="fotos">
 
-        <div class="foto-placeholder">
-          FOTO DE PAMELA Y CARLOS
-        </div>
 
         <div class="foto-placeholder">
-          FOTO DE PAMELA Y CARLOS
+          Foto 1
         </div>
 
+
         <div class="foto-placeholder">
-          FOTO DE PAMELA Y CARLOS
+          Foto 2
         </div>
+
+
+        <div class="foto-placeholder">
+          Foto 3
+        </div>
+
+
+        <div class="foto-placeholder">
+          Foto 4
+        </div>
+
+
+        <div class="foto-placeholder">
+          Foto 5
+        </div>
+
+
+        <div class="foto-placeholder">
+          Foto 6
+        </div>
+
 
       </div>
 
@@ -588,27 +1161,48 @@
   </section>
 
 
-  <!-- CONFIRMACIÓN -->
-  <section class="confirmacion">
+  <!-- =========================================
+       CONFIRMACIÓN
+  ========================================== -->
+
+  <section
+    class="confirmacion"
+    id="confirmacion">
 
     <div class="contenedor revelar">
 
-      <p class="subtitulo">Queremos celebrar contigo</p>
-
-      <h2>Confirma tu Asistencia</h2>
-
-      <p class="texto">
-        Para nosotros es muy importante saber si podremos contar
-        con tu compañía en este día tan especial.
+      <p class="subtitulo">
+        Queremos celebrar contigo
       </p>
 
+      <h2>
+        Confirma tu Asistencia
+      </h2>
+
+      <p class="texto">
+
+        Para nosotros es muy importante saber
+        si podremos contar con tu compañía
+        en este día tan especial.
+
+      </p>
+
+
       <!--
-      MÁS ADELANTE PONDREMOS AQUÍ EL ENLACE
-      DEL FORMULARIO DE CONFIRMACIÓN
+        DESPUÉS CAMBIAREMOS ESTE BOTÓN
+        POR EL LINK DEL FORMULARIO REAL
       -->
 
-      <a href="#" class="boton">
+      <a
+        href="#"
+        class="boton"
+        onclick="
+          alert('Próximamente estará disponible el formulario de confirmación.');
+          return false;
+        ">
+
         Confirmar asistencia
+
       </a>
 
     </div>
@@ -616,10 +1210,15 @@
   </section>
 
 
-  <!-- FINAL -->
+  <!-- =========================================
+       FINAL
+  ========================================== -->
+
   <footer>
 
-    <h2>Pamela & Carlos</h2>
+    <h2>
+      Carlos & Pamela
+    </h2>
 
     <p>
       19 · DICIEMBRE · 2026
@@ -628,88 +1227,367 @@
   </footer>
 
 
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================== -->
+
   <script>
 
-    /* CUENTA REGRESIVA */
+
+    /* =========================================
+       CUENTA REGRESIVA
+    ========================================= */
 
     const fechaBoda =
       new Date("2026-12-19T14:00:00-06:00").getTime();
 
+
     function actualizarContador() {
 
-      const ahora = new Date().getTime();
+      const ahora =
+        new Date().getTime();
 
-      const diferencia = fechaBoda - ahora;
+      const diferencia =
+        fechaBoda - ahora;
+
 
       if (diferencia <= 0) {
 
         document.getElementById("dias").innerHTML = "00";
+
         document.getElementById("horas").innerHTML = "00";
+
         document.getElementById("minutos").innerHTML = "00";
+
         document.getElementById("segundos").innerHTML = "00";
 
         return;
+
       }
 
+
       const dias =
-        Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        Math.floor(
+          diferencia /
+          (1000 * 60 * 60 * 24)
+        );
+
 
       const horas =
         Math.floor(
-          (diferencia % (1000 * 60 * 60 * 24))
-          / (1000 * 60 * 60)
+          (
+            diferencia %
+            (1000 * 60 * 60 * 24)
+          ) /
+          (1000 * 60 * 60)
         );
+
 
       const minutos =
         Math.floor(
-          (diferencia % (1000 * 60 * 60))
-          / (1000 * 60)
+          (
+            diferencia %
+            (1000 * 60 * 60)
+          ) /
+          (1000 * 60)
         );
+
 
       const segundos =
         Math.floor(
-          (diferencia % (1000 * 60))
-          / 1000
+          (
+            diferencia %
+            (1000 * 60)
+          ) /
+          1000
         );
 
-      document.getElementById("dias").innerHTML = dias;
+
+      document.getElementById("dias").innerHTML =
+        dias;
+
+
       document.getElementById("horas").innerHTML =
         String(horas).padStart(2, "0");
+
+
       document.getElementById("minutos").innerHTML =
         String(minutos).padStart(2, "0");
+
+
       document.getElementById("segundos").innerHTML =
         String(segundos).padStart(2, "0");
 
     }
 
+
     actualizarContador();
 
-    setInterval(actualizarContador, 1000);
+    setInterval(
+      actualizarContador,
+      1000
+    );
 
 
-    /* ANIMACIONES AL BAJAR */
+
+    /* =========================================
+       ANIMACIONES AL DESLIZAR
+    ========================================= */
 
     const elementos =
       document.querySelectorAll(".revelar");
 
+
     const observer =
-      new IntersectionObserver((entradas) => {
+      new IntersectionObserver(
 
-        entradas.forEach((entrada) => {
+        (entradas) => {
 
-          if (entrada.isIntersecting) {
-            entrada.target.classList.add("visible");
+          entradas.forEach(
+
+            (entrada) => {
+
+              if (entrada.isIntersecting) {
+
+                entrada.target.classList.add(
+                  "visible"
+                );
+
+              }
+
+            }
+
+          );
+
+        },
+
+        {
+          threshold: 0.15
+        }
+
+      );
+
+
+    elementos.forEach(
+
+      (elemento) => {
+
+        observer.observe(elemento);
+
+      }
+
+    );
+
+
+
+    /* =========================================
+       MÚSICA DE YOUTUBE
+    ========================================= */
+
+
+    const botonAbrir =
+      document.getElementById(
+        "abrirInvitacion"
+      );
+
+
+    const entrada =
+      document.getElementById(
+        "entrada"
+      );
+
+
+    const botonMusica =
+      document.getElementById(
+        "botonMusica"
+      );
+
+
+    let reproductor;
+
+    let musicaActiva = false;
+
+
+    /*
+      VIDEO DE YOUTUBE:
+
+      https://www.youtube.com/watch?v=b5Zay_Hd_7Q
+    */
+
+
+    const youtubeScript =
+      document.createElement("script");
+
+
+    youtubeScript.src =
+      "https://www.youtube.com/iframe_api";
+
+
+    document.head.appendChild(
+      youtubeScript
+    );
+
+
+
+    function onYouTubeIframeAPIReady() {
+
+      reproductor =
+        new YT.Player(
+          "youtube-player",
+          {
+
+            height: "1",
+
+            width: "1",
+
+            videoId:
+              "b5Zay_Hd_7Q",
+
+            playerVars: {
+
+              autoplay: 0,
+
+              controls: 0,
+
+              disablekb: 1,
+
+              fs: 0,
+
+              playsinline: 1,
+
+              rel: 0,
+
+              loop: 1,
+
+              playlist:
+                "b5Zay_Hd_7Q"
+
+            },
+
+
+            events: {
+
+              onReady:
+                function () {
+
+                  reproductor.setVolume(35);
+
+                  botonAbrir.disabled =
+                    false;
+
+                  botonAbrir.innerHTML =
+                    "Abrir invitación ♫";
+
+                },
+
+
+              onStateChange:
+                function (evento) {
+
+                  if (
+                    evento.data ===
+                    YT.PlayerState.ENDED
+                  ) {
+
+                    reproductor.playVideo();
+
+                  }
+
+                }
+
+            }
+
           }
 
-        });
+        );
 
-      }, {
-        threshold: 0.15
-      });
+    }
 
-    elementos.forEach((elemento) => {
-      observer.observe(elemento);
-    });
+
+
+    /* ABRIR LA INVITACIÓN */
+
+    botonAbrir.addEventListener(
+
+      "click",
+
+      function () {
+
+        entrada.classList.add(
+          "oculta"
+        );
+
+
+        document.body.classList.remove(
+          "bloqueado"
+        );
+
+
+        botonMusica.style.display =
+          "block";
+
+
+        if (reproductor) {
+
+          reproductor.playVideo();
+
+          reproductor.setVolume(35);
+
+          musicaActiva = true;
+
+          botonMusica.innerHTML =
+            "❚❚";
+
+        }
+
+      }
+
+    );
+
+
+
+    /* PAUSAR / REANUDAR MÚSICA */
+
+    botonMusica.addEventListener(
+
+      "click",
+
+      function () {
+
+        if (!reproductor) {
+          return;
+        }
+
+
+        if (musicaActiva) {
+
+          reproductor.pauseVideo();
+
+          musicaActiva = false;
+
+          botonMusica.innerHTML =
+            "♫";
+
+        }
+
+        else {
+
+          reproductor.playVideo();
+
+          reproductor.setVolume(35);
+
+          musicaActiva = true;
+
+          botonMusica.innerHTML =
+            "❚❚";
+
+        }
+
+      }
+
+    );
+
 
   </script>
 
