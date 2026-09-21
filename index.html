@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
   <title>Carlos & Pamela | Nuestra Boda</title>
 
   <style>
+
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
     :root {
@@ -40,17 +45,19 @@
     }
 
 
-    /* =========================================
-       PANTALLA PARA ABRIR LA INVITACIÓN
-    ========================================= */
+    /* ==============================
+       ENTRADA
+    ============================== */
 
     .entrada {
       position: fixed;
       inset: 0;
       width: 100%;
       height: 100%;
+
       background:
         radial-gradient(circle at center, #3d465f 0%, #171d29 75%);
+
       z-index: 99999;
 
       display: flex;
@@ -121,7 +128,6 @@
 
     .entrada-fecha {
       margin-top: 30px;
-
       font-family: 'Cormorant Garamond', serif;
       font-size: 23px;
       letter-spacing: 3px;
@@ -143,7 +149,6 @@
       font-size: 10px;
 
       cursor: pointer;
-
       transition: 0.3s;
     }
 
@@ -158,9 +163,9 @@
     }
 
 
-    /* =========================================
-       REPRODUCTOR OCULTO
-    ========================================= */
+    /* ==============================
+       MÚSICA
+    ============================== */
 
     .youtube-player {
       position: fixed;
@@ -188,7 +193,7 @@
       background: var(--azul-oscuro);
       color: var(--rosa-claro);
 
-      font-size: 22px;
+      font-size: 21px;
 
       cursor: pointer;
 
@@ -206,9 +211,9 @@
     }
 
 
-    /* =========================================
+    /* ==============================
        PORTADA
-    ========================================= */
+    ============================== */
 
     .hero {
       min-height: 100vh;
@@ -260,45 +265,31 @@
 
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
-
       font-size: clamp(60px, 14vw, 115px);
-
       font-weight: 500;
-
       line-height: .8;
     }
 
     .hero .amp {
       color: var(--rosa-claro);
-
       font-size: .65em;
-
       display: block;
-
       margin: 15px 0;
     }
 
     .fecha {
       margin-top: 35px;
-
       font-family: 'Cormorant Garamond', serif;
-
       font-size: 24px;
-
       letter-spacing: 3px;
     }
 
     .scroll {
       position: absolute;
-
       bottom: 25px;
-
       font-size: 12px;
-
       letter-spacing: 2px;
-
       opacity: .8;
-
       animation: subirBajar 2s infinite;
     }
 
@@ -315,9 +306,9 @@
     }
 
 
-    /* =========================================
-       SECCIONES
-    ========================================= */
+    /* ==============================
+       SECCIONES GENERALES
+    ============================== */
 
     section {
       padding: 80px 20px;
@@ -325,58 +316,42 @@
 
     .contenedor {
       max-width: 900px;
-
       margin: auto;
-
       text-align: center;
     }
 
     .subtitulo {
       text-transform: uppercase;
-
       letter-spacing: 4px;
-
       font-size: 11px;
-
       color: var(--rosa);
-
       margin-bottom: 12px;
     }
 
     h2 {
       font-family: 'Cormorant Garamond', serif;
-
       font-size: clamp(42px, 10vw, 65px);
-
       font-weight: 500;
-
       margin-bottom: 25px;
     }
 
     .texto {
       max-width: 650px;
-
       margin: auto;
-
       line-height: 1.9;
-
       font-size: 15px;
     }
 
     .ornamento {
-      font-family: 'Cormorant Garamond', serif;
-
       color: var(--rosa);
-
       font-size: 35px;
-
       margin: 25px 0;
     }
 
 
-    /* =========================================
+    /* ==============================
        MENSAJE
-    ========================================= */
+    ============================== */
 
     .mensaje {
       background: var(--blanco);
@@ -384,32 +359,25 @@
 
     .mensaje .frase {
       font-family: 'Cormorant Garamond', serif;
-
       font-size: 30px;
-
       line-height: 1.4;
-
       max-width: 650px;
-
       margin: auto;
-
       font-style: italic;
     }
 
 
-    /* =========================================
-       CUENTA REGRESIVA
-    ========================================= */
+    /* ==============================
+       CONTADOR
+    ============================== */
 
     .contador-seccion {
       background: var(--azul-oscuro);
-
       color: white;
     }
 
     .contador {
       display: grid;
-
       grid-template-columns: repeat(4, 1fr);
 
       max-width: 650px;
@@ -421,24 +389,20 @@
 
     .numero {
       font-family: 'Cormorant Garamond', serif;
-
       font-size: clamp(38px, 9vw, 65px);
-
       color: var(--rosa-claro);
     }
 
     .etiqueta {
       font-size: 10px;
-
       text-transform: uppercase;
-
       letter-spacing: 2px;
     }
 
 
-    /* =========================================
-       CEREMONIA Y RECEPCIÓN
-    ========================================= */
+    /* ==============================
+       EVENTOS
+    ============================== */
 
     .eventos {
       background: var(--marfil);
@@ -446,11 +410,8 @@
 
     .tarjetas {
       display: grid;
-
       grid-template-columns: repeat(2, 1fr);
-
       gap: 25px;
-
       margin-top: 40px;
     }
 
@@ -468,32 +429,32 @@
 
     .icono {
       font-size: 32px;
-
       margin-bottom: 20px;
     }
 
     .tarjeta h3 {
       font-family: 'Cormorant Garamond', serif;
-
       font-size: 32px;
-
       margin-bottom: 15px;
     }
 
     .tarjeta p {
       font-size: 14px;
-
       line-height: 1.8;
-
       margin-bottom: 6px;
     }
+
+
+    /* ==============================
+       BOTONES
+    ============================== */
 
     .boton {
       display: inline-block;
 
       margin-top: 22px;
 
-      padding: 13px 24px;
+      padding: 14px 25px;
 
       background: var(--azul-oscuro);
 
@@ -519,13 +480,12 @@
     }
 
 
-    /* =========================================
-       CÓDIGO DE VESTIMENTA
-    ========================================= */
+    /* ==============================
+       VESTIMENTA
+    ============================== */
 
     .vestimenta {
       background: var(--azul);
-
       color: white;
     }
 
@@ -535,39 +495,32 @@
 
     .formal {
       font-family: 'Cormorant Garamond', serif;
-
       font-size: 42px;
-
       color: var(--rosa-claro);
-
       margin: 20px 0;
     }
 
 
-    /* =========================================
+    /* ==============================
        PRESENTE
-    ========================================= */
+    ============================== */
 
     .regalo {
       background: white;
     }
 
-    .regalo .frase-regalo {
+    .frase-regalo {
       font-family: 'Cormorant Garamond', serif;
-
       font-size: 27px;
-
       max-width: 650px;
-
       margin: auto;
-
       line-height: 1.5;
     }
 
 
-    /* =========================================
+    /* ==============================
        GALERÍA
-    ========================================= */
+    ============================== */
 
     .galeria {
       background: #f0ece6;
@@ -591,12 +544,8 @@
       background: rgba(255,255,255,.70);
 
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
-      padding: 15px;
 
       color: #777;
 
@@ -608,9 +557,9 @@
     }
 
 
-    /* =========================================
+    /* ==============================
        CONFIRMACIÓN
-    ========================================= */
+    ============================== */
 
     .confirmacion {
       background: var(--rosa-claro);
@@ -618,17 +567,16 @@
 
     .confirmacion .boton {
       font-size: 11px;
-
       padding: 16px 30px;
     }
 
 
-    /* =========================================
-       FOOTER
-    ========================================= */
+    /* ==============================
+       FINAL
+    ============================== */
 
     footer {
-      padding: 65px 20px;
+      padding: 70px 20px;
 
       background: var(--azul-oscuro);
 
@@ -638,40 +586,63 @@
     }
 
     footer h2 {
+      font-family: 'Cormorant Garamond', serif;
+
+      font-size: clamp(45px, 10vw, 68px);
+
+      font-weight: 500;
+
       color: var(--rosa-claro);
 
-      margin-bottom: 10px;
+      margin-bottom: 18px;
     }
 
-    footer p {
-      font-size: 12px;
+    .versiculo-final {
+      font-family: 'Montserrat', sans-serif;
 
-      letter-spacing: 2px;
+      font-size: 11px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color: var(--rosa-claro);
+
+      margin-bottom: 15px;
+    }
+
+    .fecha-final {
+      font-family: 'Montserrat', sans-serif;
+
+      font-size: 11px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color: white;
     }
 
 
-    /* =========================================
+    /* ==============================
        ANIMACIONES
-    ========================================= */
+    ============================== */
 
     .revelar {
       opacity: 0;
-
       transform: translateY(35px);
-
       transition: all .8s ease;
     }
 
     .revelar.visible {
       opacity: 1;
-
       transform: translateY(0);
     }
 
 
-    /* =========================================
-       CELULARES
-    ========================================= */
+    /* ==============================
+       CELULAR
+    ============================== */
 
     @media (max-width: 650px) {
 
@@ -684,25 +655,30 @@
       }
 
       .contador {
-        gap: 5px;
+        gap: 4px;
       }
 
       section {
         padding: 65px 18px;
       }
 
+      footer {
+        padding: 60px 20px;
+      }
+
     }
 
   </style>
+
 </head>
 
 
 <body class="bloqueado">
 
 
-  <!-- =========================================
+  <!-- ==============================
        PANTALLA INICIAL
-  ========================================== -->
+  ============================== -->
 
   <div class="entrada" id="entrada">
 
@@ -717,6 +693,7 @@
       </p>
 
       <h1>
+
         Carlos
 
         <span class="entrada-amp">
@@ -724,6 +701,7 @@
         </span>
 
         Pamela
+
       </h1>
 
       <p class="entrada-fecha">
@@ -744,7 +722,7 @@
   </div>
 
 
-  <!-- REPRODUCTOR YOUTUBE -->
+  <!-- MÚSICA -->
 
   <div
     id="youtube-player"
@@ -752,21 +730,19 @@
   </div>
 
 
-  <!-- BOTÓN PARA PAUSAR / REPRODUCIR -->
-
   <button
     id="botonMusica"
     class="boton-musica"
-    title="Pausar o reproducir música">
+    aria-label="Pausar o reproducir música">
 
     ♫
 
   </button>
 
 
-  <!-- =========================================
-       PORTADA PRINCIPAL
-  ========================================== -->
+  <!-- ==============================
+       PORTADA
+  ============================== -->
 
   <header class="hero">
 
@@ -801,9 +777,9 @@
   </header>
 
 
-  <!-- =========================================
+  <!-- ==============================
        MENSAJE
-  ========================================== -->
+  ============================== -->
 
   <section class="mensaje">
 
@@ -835,12 +811,15 @@
 
       <p class="texto">
 
-        Después de compartir nuestra historia, nuestros sueños
-        y nuestros proyectos, hemos decidido comenzar juntos
-        un nuevo capítulo.
+        Después de compartir nuestra historia,
+        nuestros sueños y nuestros proyectos,
+        hemos decidido comenzar juntos un nuevo capítulo.
 
-        Nos hará muy felices que nos acompañes en uno de los días
-        más importantes de nuestras vidas.
+        <br><br>
+
+        Nos hará muy felices que nos acompañes
+        en uno de los días más importantes
+        de nuestras vidas.
 
       </p>
 
@@ -849,9 +828,9 @@
   </section>
 
 
-  <!-- =========================================
+  <!-- ==============================
        CUENTA REGRESIVA
-  ========================================== -->
+  ============================== -->
 
   <section class="contador-seccion">
 
@@ -869,12 +848,8 @@
 
         <div>
 
-          <div
-            class="numero"
-            id="dias">
-
+          <div class="numero" id="dias">
             00
-
           </div>
 
           <div class="etiqueta">
@@ -886,12 +861,8 @@
 
         <div>
 
-          <div
-            class="numero"
-            id="horas">
-
+          <div class="numero" id="horas">
             00
-
           </div>
 
           <div class="etiqueta">
@@ -903,12 +874,8 @@
 
         <div>
 
-          <div
-            class="numero"
-            id="minutos">
-
+          <div class="numero" id="minutos">
             00
-
           </div>
 
           <div class="etiqueta">
@@ -920,12 +887,8 @@
 
         <div>
 
-          <div
-            class="numero"
-            id="segundos">
-
+          <div class="numero" id="segundos">
             00
-
           </div>
 
           <div class="etiqueta">
@@ -941,9 +904,9 @@
   </section>
 
 
-  <!-- =========================================
-       CEREMONIA Y RECEPCIÓN
-  ========================================== -->
+  <!-- ==============================
+       EVENTOS
+  ============================== -->
 
   <section class="eventos">
 
@@ -956,7 +919,6 @@
       <h2>
         Nuestro Gran Día
       </h2>
-
 
       <div class="tarjetas">
 
@@ -1020,7 +982,7 @@
             class="boton"
             href="https://maps.app.goo.gl/CaPbQP1ztW61NnxFA"
             target="_blank"
-            rel="noopener">
+            rel="noopener noreferrer">
 
             Ver ubicación
 
@@ -1035,9 +997,9 @@
   </section>
 
 
-  <!-- =========================================
-       CÓDIGO DE VESTIMENTA
-  ========================================== -->
+  <!-- ==============================
+       VESTIMENTA
+  ============================== -->
 
   <section class="vestimenta">
 
@@ -1053,10 +1015,13 @@
 
       <p class="texto">
 
-        Queremos que esta celebración se vista de elegancia.
+        Queremos que esta celebración
+        se vista de elegancia.
 
-        Agradecemos a nuestros invitados acompañarnos
-        con vestimenta formal.
+        <br><br>
+
+        Agradecemos a nuestros invitados
+        acompañarnos con vestimenta formal.
 
       </p>
 
@@ -1065,9 +1030,9 @@
   </section>
 
 
-  <!-- =========================================
+  <!-- ==============================
        PRESENTE
-  ========================================== -->
+  ============================== -->
 
   <section class="regalo">
 
@@ -1097,9 +1062,9 @@
   </section>
 
 
-  <!-- =========================================
+  <!-- ==============================
        GALERÍA
-  ========================================== -->
+  ============================== -->
 
   <section class="galeria">
 
@@ -1120,39 +1085,31 @@
 
       </p>
 
-
       <div class="fotos">
-
 
         <div class="foto-placeholder">
           Foto 1
         </div>
 
-
         <div class="foto-placeholder">
           Foto 2
         </div>
-
 
         <div class="foto-placeholder">
           Foto 3
         </div>
 
-
         <div class="foto-placeholder">
           Foto 4
         </div>
-
 
         <div class="foto-placeholder">
           Foto 5
         </div>
 
-
         <div class="foto-placeholder">
           Foto 6
         </div>
-
 
       </div>
 
@@ -1161,13 +1118,11 @@
   </section>
 
 
-  <!-- =========================================
+  <!-- ==============================
        CONFIRMACIÓN
-  ========================================== -->
+  ============================== -->
 
-  <section
-    class="confirmacion"
-    id="confirmacion">
+  <section class="confirmacion">
 
     <div class="contenedor revelar">
 
@@ -1187,19 +1142,11 @@
 
       </p>
 
-
-      <!--
-        DESPUÉS CAMBIAREMOS ESTE BOTÓN
-        POR EL LINK DEL FORMULARIO REAL
-      -->
-
       <a
-        href="#"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeEP-mimgP5zfKe4mhEwjb7iPlhFYDIfb_6I7_ir6myQ2Nxxg/viewform?usp=header"
         class="boton"
-        onclick="
-          alert('Próximamente estará disponible el formulario de confirmación.');
-          return false;
-        ">
+        target="_blank"
+        rel="noopener noreferrer">
 
         Confirmar asistencia
 
@@ -1210,9 +1157,9 @@
   </section>
 
 
-  <!-- =========================================
-       FINAL
-  ========================================== -->
+  <!-- ==============================
+       FINAL MODIFICADO
+  ============================== -->
 
   <footer>
 
@@ -1220,24 +1167,25 @@
       Carlos & Pamela
     </h2>
 
-    <p>
+    <p class="versiculo-final">
+      CANTARES 3:4
+    </p>
+
+    <p class="fecha-final">
       19 · DICIEMBRE · 2026
     </p>
 
   </footer>
 
 
-
-  <!-- =========================================
+  <!-- ==============================
        JAVASCRIPT
-  ========================================== -->
+  ============================== -->
 
   <script>
 
 
-    /* =========================================
-       CUENTA REGRESIVA
-    ========================================= */
+    /* CUENTA REGRESIVA */
 
     const fechaBoda =
       new Date("2026-12-19T14:00:00-06:00").getTime();
@@ -1254,13 +1202,17 @@
 
       if (diferencia <= 0) {
 
-        document.getElementById("dias").innerHTML = "00";
+        document.getElementById("dias").innerHTML =
+          "00";
 
-        document.getElementById("horas").innerHTML = "00";
+        document.getElementById("horas").innerHTML =
+          "00";
 
-        document.getElementById("minutos").innerHTML = "00";
+        document.getElementById("minutos").innerHTML =
+          "00";
 
-        document.getElementById("segundos").innerHTML = "00";
+        document.getElementById("segundos").innerHTML =
+          "00";
 
         return;
 
@@ -1330,10 +1282,7 @@
     );
 
 
-
-    /* =========================================
-       ANIMACIONES AL DESLIZAR
-    ========================================= */
+    /* ANIMACIONES */
 
     const elementos =
       document.querySelectorAll(".revelar");
@@ -1373,18 +1322,18 @@
 
       (elemento) => {
 
-        observer.observe(elemento);
+        observer.observe(
+          elemento
+        );
 
       }
 
     );
 
 
-
-    /* =========================================
-       MÚSICA DE YOUTUBE
-    ========================================= */
-
+    /* ==============================
+       MÚSICA YOUTUBE
+    ============================== */
 
     const botonAbrir =
       document.getElementById(
@@ -1406,18 +1355,17 @@
 
     let reproductor;
 
-    let musicaActiva = false;
+    let musicaActiva =
+      false;
 
-
-    /*
-      VIDEO DE YOUTUBE:
-
-      https://www.youtube.com/watch?v=b5Zay_Hd_7Q
-    */
+    let youtubeListo =
+      false;
 
 
     const youtubeScript =
-      document.createElement("script");
+      document.createElement(
+        "script"
+      );
 
 
     youtubeScript.src =
@@ -1429,12 +1377,13 @@
     );
 
 
-
     function onYouTubeIframeAPIReady() {
 
       reproductor =
         new YT.Player(
+
           "youtube-player",
+
           {
 
             height: "1",
@@ -1471,28 +1420,21 @@
               onReady:
                 function () {
 
-                  reproductor.setVolume(35);
+                  youtubeListo =
+                    true;
+
+
+                  reproductor.setVolume(
+                    35
+                  );
+
 
                   botonAbrir.disabled =
                     false;
 
+
                   botonAbrir.innerHTML =
                     "Abrir invitación ♫";
-
-                },
-
-
-              onStateChange:
-                function (evento) {
-
-                  if (
-                    evento.data ===
-                    YT.PlayerState.ENDED
-                  ) {
-
-                    reproductor.playVideo();
-
-                  }
 
                 }
 
@@ -1505,8 +1447,34 @@
     }
 
 
+    /*
+      Si YouTube tarda demasiado,
+      igualmente dejamos entrar
+      a la invitación.
+    */
 
-    /* ABRIR LA INVITACIÓN */
+    setTimeout(
+
+      function () {
+
+        if (!youtubeListo) {
+
+          botonAbrir.disabled =
+            false;
+
+          botonAbrir.innerHTML =
+            "Abrir invitación";
+
+        }
+
+      },
+
+      5000
+
+    );
+
+
+    /* ABRIR INVITACIÓN */
 
     botonAbrir.addEventListener(
 
@@ -1524,17 +1492,26 @@
         );
 
 
-        botonMusica.style.display =
-          "block";
+        if (
+          reproductor &&
+          youtubeListo
+        ) {
+
+          botonMusica.style.display =
+            "block";
 
 
-        if (reproductor) {
+          reproductor.setVolume(
+            35
+          );
+
 
           reproductor.playVideo();
 
-          reproductor.setVolume(35);
 
-          musicaActiva = true;
+          musicaActiva =
+            true;
+
 
           botonMusica.innerHTML =
             "❚❚";
@@ -1546,8 +1523,7 @@
     );
 
 
-
-    /* PAUSAR / REANUDAR MÚSICA */
+    /* PAUSAR / REPRODUCIR */
 
     botonMusica.addEventListener(
 
@@ -1564,20 +1540,25 @@
 
           reproductor.pauseVideo();
 
-          musicaActiva = false;
+          musicaActiva =
+            false;
 
           botonMusica.innerHTML =
             "♫";
 
         }
 
+
         else {
 
           reproductor.playVideo();
 
-          reproductor.setVolume(35);
+          reproductor.setVolume(
+            35
+          );
 
-          musicaActiva = true;
+          musicaActiva =
+            true;
 
           botonMusica.innerHTML =
             "❚❚";
@@ -1592,4 +1573,5 @@
   </script>
 
 </body>
+
 </html>
