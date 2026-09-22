@@ -565,6 +565,29 @@ h2 {
 }
 
 
+/* NUEVO MENSAJE CEREMONIA */
+
+.aviso-ceremonia {
+
+  margin-top: 22px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid var(--rosa-claro);
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 19px !important;
+
+  font-style: italic;
+
+  line-height: 1.4 !important;
+
+  color: var(--rosa);
+
+}
+
+
 /* ============================
    BOTONES
 ============================ */
@@ -687,7 +710,7 @@ h2 {
 
 
 /* ============================
-   NUEVO: CUPOS PERSONALIZADOS
+   CUPOS PERSONALIZADOS
 ============================ */
 
 .cupos {
@@ -1108,6 +1131,8 @@ Nuestro Gran Día
 <div class="tarjetas">
 
 
+<!-- CEREMONIA -->
+
 <div class="tarjeta">
 
 <div class="icono">
@@ -1134,8 +1159,14 @@ Tambor de Alajuela
 Sábado 19 de diciembre de 2026
 </p>
 
+<p class="aviso-ceremonia">
+Agradecemos nos acompañen desde la ceremonia.
+</p>
+
 </div>
 
+
+<!-- RECEPCIÓN -->
 
 <div class="tarjeta">
 
@@ -1158,7 +1189,8 @@ Celebraremos juntos este momento tan especial.
 <a
 class="boton"
 href="https://maps.app.goo.gl/CaPbQP1ztW61NnxFA"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer">
 
 Ver ubicación
 
@@ -1294,9 +1326,9 @@ Foto 6
 </section>
 
 
-<!-- ======================================
-     CUPOS PERSONALIZADOS
-====================================== -->
+<!-- ============================
+     CUPOS
+============================ -->
 
 <section class="cupos">
 
@@ -1319,7 +1351,6 @@ id="nombreInvitado">
 Invitado especial
 
 </div>
-
 
 <p class="cupos-mensaje">
 
@@ -1374,11 +1405,11 @@ en este día tan especial.
 
 </p>
 
-
 <a
 href="https://docs.google.com/forms/d/e/1FAIpQLSeEP-mimgP5zfKe4mhEwjb7iPlhFYDIfb_6I7_ir6myQ2Nxxg/viewform?usp=header"
 class="boton"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer">
 
 Confirmar asistencia
 
@@ -1433,8 +1464,6 @@ parametros.get("cupos")
 );
 
 
-/* NOMBRE */
-
 if(nombre){
 
 document
@@ -1444,8 +1473,6 @@ nombre;
 
 }
 
-
-/* CUPOS */
 
 if(
 cupos &&
@@ -1458,8 +1485,6 @@ document
 cupos;
 
 
-/* SINGULAR */
-
 if(cupos === 1){
 
 document
@@ -1468,9 +1493,6 @@ document
 "espacio para ti";
 
 }
-
-
-/* PLURAL */
 
 else{
 
@@ -1764,7 +1786,9 @@ botonAbrir.innerHTML =
 );
 
 
-/* ABRIR INVITACIÓN */
+/* ============================
+   ABRIR INVITACIÓN
+============================ */
 
 botonAbrir
 .addEventListener(
@@ -1818,7 +1842,9 @@ botonMusica
 );
 
 
-/* PAUSA */
+/* ============================
+   PAUSAR / REPRODUCIR MÚSICA
+============================ */
 
 botonMusica
 .addEventListener(
