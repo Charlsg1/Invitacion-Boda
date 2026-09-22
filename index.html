@@ -3,672 +3,860 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Carlos & Pamela | Nuestra Boda</title>
+<title>Carlos & Pamela | Nuestra Boda</title>
 
-  <style>
+<style>
 
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
-    :root {
-      --azul-oscuro: #171d29;
-      --azul: #3d465f;
-      --rosa: #cc9988;
-      --rosa-claro: #edcabc;
-      --marfil: #f7f5f0;
-      --blanco: #ffffff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--marfil);
-      color: var(--azul-oscuro);
-      overflow-x: hidden;
-    }
-
-    body.bloqueado {
-      overflow: hidden;
-    }
-
-
-    /* ==============================
-       ENTRADA
-    ============================== */
-
-    .entrada {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-
-      background:
-        radial-gradient(circle at center, #3d465f 0%, #171d29 75%);
-
-      z-index: 99999;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
+:root {
+  --azul-oscuro: #171d29;
+  --azul: #3d465f;
+  --rosa: #cc9988;
+  --rosa-claro: #edcabc;
+  --marfil: #f7f5f0;
+  --blanco: #ffffff;
+}
 
-      text-align: center;
-      color: white;
-
-      padding: 25px;
-
-      transition:
-        opacity 0.8s ease,
-        visibility 0.8s ease;
-    }
-
-    .entrada.oculta {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .entrada-contenido {
-      width: 100%;
-      max-width: 550px;
-    }
-
-    .entrada-monograma {
-      width: 125px;
-      height: 125px;
-
-      margin: 0 auto 30px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      border: 1px solid var(--rosa-claro);
-      border-radius: 50%;
+html {
+  scroll-behavior: smooth;
+}
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--marfil);
+  color: var(--azul-oscuro);
+  overflow-x: hidden;
+}
 
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 48px;
+body.bloqueado {
+  overflow: hidden;
+}
 
-      color: var(--rosa-claro);
-    }
 
-    .entrada-pequeno {
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      font-size: 11px;
-      color: var(--rosa-claro);
-      margin-bottom: 15px;
-    }
+/* ============================
+   ENTRADA
+============================ */
 
-    .entrada h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(55px, 13vw, 90px);
-      font-weight: 500;
-      line-height: 0.9;
-    }
+.entrada {
 
-    .entrada-amp {
-      display: block;
-      color: var(--rosa-claro);
-      font-size: 0.65em;
-      margin: 14px 0;
-    }
+  position: fixed;
+  inset: 0;
 
-    .entrada-fecha {
-      margin-top: 30px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 23px;
-      letter-spacing: 3px;
-    }
+  width: 100%;
+  height: 100%;
 
-    .boton-abrir {
-      margin-top: 38px;
+  background:
+    radial-gradient(
+      circle at center,
+      #3d465f 0%,
+      #171d29 75%
+    );
 
-      border: 1px solid var(--rosa-claro);
-      background: transparent;
-      color: white;
+  z-index: 99999;
 
-      padding: 16px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      font-family: 'Montserrat', sans-serif;
+  text-align: center;
 
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 10px;
+  color: white;
 
-      cursor: pointer;
-      transition: 0.3s;
-    }
+  padding: 25px;
 
-    .boton-abrir:hover {
-      background: var(--rosa-claro);
-      color: var(--azul-oscuro);
-    }
+  transition:
+    opacity .8s ease,
+    visibility .8s ease;
+}
 
-    .boton-abrir:disabled {
-      opacity: 0.5;
-      cursor: default;
-    }
+.entrada.oculta {
 
+  opacity: 0;
+  visibility: hidden;
 
-    /* ==============================
-       MÚSICA
-    ============================== */
+  pointer-events: none;
+}
 
-    .youtube-player {
-      position: fixed;
-      width: 1px;
-      height: 1px;
-      left: -100px;
-      bottom: -100px;
-      opacity: 0;
-      pointer-events: none;
-    }
+.entrada-contenido {
 
-    .boton-musica {
-      position: fixed;
+  width: 100%;
+  max-width: 550px;
+}
 
-      right: 18px;
-      bottom: 18px;
+.entrada-monograma {
 
-      width: 52px;
-      height: 52px;
+  width: 125px;
+  height: 125px;
 
-      border-radius: 50%;
+  margin: 0 auto 30px;
 
-      border: 1px solid var(--rosa-claro);
+  border: 1px solid var(--rosa-claro);
 
-      background: var(--azul-oscuro);
-      color: var(--rosa-claro);
+  border-radius: 50%;
 
-      font-size: 21px;
+  display: flex;
 
-      cursor: pointer;
+  justify-content: center;
+  align-items: center;
 
-      z-index: 5000;
+  font-family: 'Cormorant Garamond', serif;
 
-      box-shadow: 0 4px 18px rgba(0,0,0,.25);
+  font-size: 48px;
 
-      display: none;
+  color: var(--rosa-claro);
+}
 
-      transition: 0.3s;
-    }
+.entrada-pequeno {
 
-    .boton-musica:hover {
-      transform: scale(1.08);
-    }
+  text-transform: uppercase;
 
+  letter-spacing: 5px;
 
-    /* ==============================
-       PORTADA
-    ============================== */
+  font-size: 11px;
 
-    .hero {
-      min-height: 100vh;
+  color: var(--rosa-claro);
 
-      background:
-        linear-gradient(rgba(23,29,41,.70), rgba(23,29,41,.70)),
-        linear-gradient(135deg, #171d29, #3d465f);
+  margin-bottom: 15px;
+}
 
-      display: flex;
-      flex-direction: column;
+.entrada h1 {
 
-      justify-content: center;
-      align-items: center;
+  font-family: 'Cormorant Garamond', serif;
 
-      text-align: center;
+  font-size: clamp(55px,13vw,90px);
 
-      padding: 30px 20px;
+  font-weight: 500;
 
-      color: white;
+  line-height: .9;
+}
 
-      position: relative;
-    }
+.entrada-amp {
 
-    .monograma {
-      width: 115px;
-      height: 115px;
+  display: block;
 
-      border: 1px solid var(--rosa-claro);
-      border-radius: 50%;
+  color: var(--rosa-claro);
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  font-size: .65em;
 
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 45px;
+  margin: 14px 0;
+}
 
-      margin-bottom: 28px;
+.entrada-fecha {
 
-      color: var(--rosa-claro);
-    }
+  margin-top: 30px;
 
-    .hero .intro {
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      font-size: 12px;
-      margin-bottom: 15px;
-    }
+  font-family: 'Cormorant Garamond', serif;
 
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(60px, 14vw, 115px);
-      font-weight: 500;
-      line-height: .8;
-    }
+  font-size: 23px;
 
-    .hero .amp {
-      color: var(--rosa-claro);
-      font-size: .65em;
-      display: block;
-      margin: 15px 0;
-    }
+  letter-spacing: 3px;
+}
 
-    .fecha {
-      margin-top: 35px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      letter-spacing: 3px;
-    }
+.boton-abrir {
 
-    .scroll {
-      position: absolute;
-      bottom: 25px;
-      font-size: 12px;
-      letter-spacing: 2px;
-      opacity: .8;
-      animation: subirBajar 2s infinite;
-    }
+  margin-top: 38px;
 
-    @keyframes subirBajar {
+  border: 1px solid var(--rosa-claro);
 
-      0%, 100% {
-        transform: translateY(0);
-      }
+  background: transparent;
 
-      50% {
-        transform: translateY(8px);
-      }
+  color: white;
 
-    }
+  padding: 16px 30px;
 
+  font-family: 'Montserrat', sans-serif;
 
-    /* ==============================
-       SECCIONES GENERALES
-    ============================== */
+  text-transform: uppercase;
 
-    section {
-      padding: 80px 20px;
-    }
+  letter-spacing: 3px;
 
-    .contenedor {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
+  font-size: 10px;
 
-    .subtitulo {
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 11px;
-      color: var(--rosa);
-      margin-bottom: 12px;
-    }
+  cursor: pointer;
 
-    h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(42px, 10vw, 65px);
-      font-weight: 500;
-      margin-bottom: 25px;
-    }
+  transition: .3s;
+}
 
-    .texto {
-      max-width: 650px;
-      margin: auto;
-      line-height: 1.9;
-      font-size: 15px;
-    }
+.boton-abrir:hover {
 
-    .ornamento {
-      color: var(--rosa);
-      font-size: 35px;
-      margin: 25px 0;
-    }
+  background: var(--rosa-claro);
 
+  color: var(--azul-oscuro);
+}
 
-    /* ==============================
-       MENSAJE
-    ============================== */
+.boton-abrir:disabled {
 
-    .mensaje {
-      background: var(--blanco);
-    }
+  opacity: .5;
+}
 
-    .mensaje .frase {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 30px;
-      line-height: 1.4;
-      max-width: 650px;
-      margin: auto;
-      font-style: italic;
-    }
 
+/* ============================
+   MÚSICA
+============================ */
 
-    /* ==============================
-       CONTADOR
-    ============================== */
+.youtube-player {
 
-    .contador-seccion {
-      background: var(--azul-oscuro);
-      color: white;
-    }
+  position: fixed;
 
-    .contador {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+  width: 1px;
+  height: 1px;
 
-      max-width: 650px;
+  left: -100px;
 
-      margin: 40px auto 0;
+  bottom: -100px;
 
-      gap: 10px;
-    }
+  opacity: 0;
+}
 
-    .numero {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(38px, 9vw, 65px);
-      color: var(--rosa-claro);
-    }
+.boton-musica {
 
-    .etiqueta {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
+  position: fixed;
 
+  right: 18px;
+  bottom: 18px;
 
-    /* ==============================
-       EVENTOS
-    ============================== */
+  width: 52px;
+  height: 52px;
 
-    .eventos {
-      background: var(--marfil);
-    }
+  border-radius: 50%;
 
-    .tarjetas {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      margin-top: 40px;
-    }
+  border: 1px solid var(--rosa-claro);
 
-    .tarjeta {
-      background: white;
+  background: var(--azul-oscuro);
 
-      padding: 45px 25px;
+  color: var(--rosa-claro);
 
-      border-radius: 3px;
+  font-size: 21px;
 
-      box-shadow: 0 8px 30px rgba(0,0,0,.06);
+  cursor: pointer;
 
-      border-top: 4px solid var(--rosa);
-    }
+  z-index: 5000;
 
-    .icono {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
+  display: none;
 
-    .tarjeta h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      margin-bottom: 15px;
-    }
+  box-shadow: 0 4px 18px rgba(0,0,0,.25);
+}
 
-    .tarjeta p {
-      font-size: 14px;
-      line-height: 1.8;
-      margin-bottom: 6px;
-    }
 
+/* ============================
+   PORTADA
+============================ */
 
-    /* ==============================
-       BOTONES
-    ============================== */
+.hero {
 
-    .boton {
-      display: inline-block;
+  min-height: 100vh;
 
-      margin-top: 22px;
+  background:
+    linear-gradient(
+      rgba(23,29,41,.70),
+      rgba(23,29,41,.70)
+    ),
+    linear-gradient(
+      135deg,
+      #171d29,
+      #3d465f
+    );
 
-      padding: 14px 25px;
+  display: flex;
 
-      background: var(--azul-oscuro);
+  flex-direction: column;
 
-      color: white;
+  justify-content: center;
 
-      text-decoration: none;
+  align-items: center;
 
-      text-transform: uppercase;
+  text-align: center;
 
-      letter-spacing: 2px;
+  color: white;
 
-      font-size: 10px;
+  padding: 30px 20px;
 
-      transition: .3s;
+  position: relative;
+}
 
-      border: none;
+.monograma {
 
-      cursor: pointer;
-    }
+  width: 115px;
+  height: 115px;
 
-    .boton:hover {
-      background: var(--rosa);
-    }
+  border: 1px solid var(--rosa-claro);
 
+  border-radius: 50%;
 
-    /* ==============================
-       VESTIMENTA
-    ============================== */
+  display: flex;
 
-    .vestimenta {
-      background: var(--azul);
-      color: white;
-    }
+  justify-content: center;
+  align-items: center;
 
-    .vestimenta h2 {
-      color: white;
-    }
+  font-family: 'Cormorant Garamond', serif;
 
-    .formal {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 42px;
-      color: var(--rosa-claro);
-      margin: 20px 0;
-    }
+  font-size: 45px;
 
+  color: var(--rosa-claro);
 
-    /* ==============================
-       PRESENTE
-    ============================== */
+  margin-bottom: 28px;
+}
 
-    .regalo {
-      background: white;
-    }
+.hero .intro {
 
-    .frase-regalo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 27px;
-      max-width: 650px;
-      margin: auto;
-      line-height: 1.5;
-    }
+  text-transform: uppercase;
 
+  letter-spacing: 5px;
 
-    /* ==============================
-       GALERÍA
-    ============================== */
+  font-size: 12px;
 
-    .galeria {
-      background: #f0ece6;
-    }
+  margin-bottom: 15px;
+}
 
-    .fotos {
-      display: grid;
+.hero h1 {
 
-      grid-template-columns: repeat(3, 1fr);
+  font-family: 'Cormorant Garamond', serif;
 
-      gap: 15px;
+  font-size: clamp(60px,14vw,115px);
 
-      margin-top: 40px;
-    }
+  font-weight: 500;
 
-    .foto-placeholder {
-      aspect-ratio: 3 / 4;
+  line-height: .8;
+}
 
-      border: 1px dashed var(--rosa);
+.hero .amp {
 
-      background: rgba(255,255,255,.70);
+  display: block;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  color: var(--rosa-claro);
 
-      color: #777;
+  font-size: .65em;
 
-      font-size: 11px;
+  margin: 15px 0;
+}
 
-      text-transform: uppercase;
+.fecha {
 
-      letter-spacing: 1px;
-    }
+  margin-top: 35px;
 
+  font-family: 'Cormorant Garamond', serif;
 
-    /* ==============================
-       CONFIRMACIÓN
-    ============================== */
+  font-size: 24px;
 
-    .confirmacion {
-      background: var(--rosa-claro);
-    }
+  letter-spacing: 3px;
+}
 
-    .confirmacion .boton {
-      font-size: 11px;
-      padding: 16px 30px;
-    }
+.scroll {
 
+  position: absolute;
 
-    /* ==============================
-       FINAL
-    ============================== */
+  bottom: 25px;
 
-    footer {
-      padding: 70px 20px;
+  font-size: 12px;
 
-      background: var(--azul-oscuro);
+  letter-spacing: 2px;
 
-      color: white;
+  animation: subirBajar 2s infinite;
+}
 
-      text-align: center;
-    }
+@keyframes subirBajar {
 
-    footer h2 {
-      font-family: 'Cormorant Garamond', serif;
+  0%,100% {
+    transform: translateY(0);
+  }
 
-      font-size: clamp(45px, 10vw, 68px);
+  50% {
+    transform: translateY(8px);
+  }
+}
 
-      font-weight: 500;
 
-      color: var(--rosa-claro);
+/* ============================
+   GENERAL
+============================ */
 
-      margin-bottom: 18px;
-    }
+section {
 
-    .versiculo-final {
-      font-family: 'Montserrat', sans-serif;
+  padding: 80px 20px;
+}
 
-      font-size: 11px;
+.contenedor {
 
-      letter-spacing: 4px;
+  max-width: 900px;
 
-      text-transform: uppercase;
+  margin: auto;
 
-      color: var(--rosa-claro);
+  text-align: center;
+}
 
-      margin-bottom: 15px;
-    }
+.subtitulo {
 
-    .fecha-final {
-      font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
 
-      font-size: 11px;
+  letter-spacing: 4px;
 
-      letter-spacing: 4px;
+  font-size: 11px;
 
-      text-transform: uppercase;
+  color: var(--rosa);
 
-      color: white;
-    }
+  margin-bottom: 12px;
+}
 
+h2 {
 
-    /* ==============================
-       ANIMACIONES
-    ============================== */
+  font-family: 'Cormorant Garamond', serif;
 
-    .revelar {
-      opacity: 0;
-      transform: translateY(35px);
-      transition: all .8s ease;
-    }
+  font-size: clamp(42px,10vw,65px);
 
-    .revelar.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  font-weight: 500;
 
+  margin-bottom: 25px;
+}
 
-    /* ==============================
-       CELULAR
-    ============================== */
+.texto {
 
-    @media (max-width: 650px) {
+  max-width: 650px;
 
-      .tarjetas {
-        grid-template-columns: 1fr;
-      }
+  margin: auto;
 
-      .fotos {
-        grid-template-columns: repeat(2, 1fr);
-      }
+  line-height: 1.9;
 
-      .contador {
-        gap: 4px;
-      }
+  font-size: 15px;
+}
 
-      section {
-        padding: 65px 18px;
-      }
+.ornamento {
 
-      footer {
-        padding: 60px 20px;
-      }
+  color: var(--rosa);
 
-    }
+  font-size: 35px;
 
-  </style>
+  margin: 25px 0;
+}
+
+
+/* ============================
+   MENSAJE
+============================ */
+
+.mensaje {
+
+  background: white;
+}
+
+.frase {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 30px;
+
+  line-height: 1.4;
+
+  max-width: 650px;
+
+  margin: auto;
+
+  font-style: italic;
+}
+
+
+/* ============================
+   CONTADOR
+============================ */
+
+.contador-seccion {
+
+  background: var(--azul-oscuro);
+
+  color: white;
+}
+
+.contador {
+
+  display: grid;
+
+  grid-template-columns: repeat(4,1fr);
+
+  max-width: 650px;
+
+  margin: 40px auto 0;
+
+  gap: 10px;
+}
+
+.numero {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(38px,9vw,65px);
+
+  color: var(--rosa-claro);
+}
+
+.etiqueta {
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+}
+
+
+/* ============================
+   EVENTOS
+============================ */
+
+.eventos {
+
+  background: var(--marfil);
+}
+
+.tarjetas {
+
+  display: grid;
+
+  grid-template-columns: repeat(2,1fr);
+
+  gap: 25px;
+
+  margin-top: 40px;
+}
+
+.tarjeta {
+
+  background: white;
+
+  padding: 45px 25px;
+
+  border-top: 4px solid var(--rosa);
+
+  box-shadow: 0 8px 30px rgba(0,0,0,.06);
+}
+
+.icono {
+
+  font-size: 32px;
+
+  margin-bottom: 20px;
+}
+
+.tarjeta h3 {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 32px;
+
+  margin-bottom: 15px;
+}
+
+.tarjeta p {
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  margin-bottom: 6px;
+}
+
+
+/* ============================
+   BOTONES
+============================ */
+
+.boton {
+
+  display: inline-block;
+
+  margin-top: 22px;
+
+  padding: 14px 25px;
+
+  background: var(--azul-oscuro);
+
+  color: white;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+
+  font-size: 10px;
+
+  transition: .3s;
+}
+
+.boton:hover {
+
+  background: var(--rosa);
+}
+
+
+/* ============================
+   VESTIMENTA
+============================ */
+
+.vestimenta {
+
+  background: var(--azul);
+
+  color: white;
+}
+
+.formal {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 42px;
+
+  color: var(--rosa-claro);
+
+  margin: 20px 0;
+}
+
+
+/* ============================
+   PRESENTE
+============================ */
+
+.regalo {
+
+  background: white;
+}
+
+.frase-regalo {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 27px;
+
+  max-width: 650px;
+
+  margin: auto;
+
+  line-height: 1.5;
+}
+
+
+/* ============================
+   FOTOS
+============================ */
+
+.galeria {
+
+  background: #f0ece6;
+}
+
+.fotos {
+
+  display: grid;
+
+  grid-template-columns: repeat(3,1fr);
+
+  gap: 15px;
+
+  margin-top: 40px;
+}
+
+.foto-placeholder {
+
+  aspect-ratio: 3/4;
+
+  border: 1px dashed var(--rosa);
+
+  background: rgba(255,255,255,.7);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: 11px;
+
+  color: #777;
+
+  text-transform: uppercase;
+}
+
+
+/* ============================
+   NUEVO: CUPOS PERSONALIZADOS
+============================ */
+
+.cupos {
+
+  background: white;
+}
+
+.tarjeta-cupos {
+
+  max-width: 600px;
+
+  margin: 35px auto 0;
+
+  padding: 45px 25px;
+
+  border: 1px solid var(--rosa-claro);
+
+  background: var(--marfil);
+
+  box-shadow: 0 10px 35px rgba(0,0,0,.06);
+}
+
+.nombre-invitado {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(35px,8vw,50px);
+
+  font-weight: 500;
+
+  color: var(--azul-oscuro);
+
+  margin-bottom: 20px;
+}
+
+.cupos-mensaje {
+
+  font-size: 14px;
+
+  letter-spacing: 1px;
+
+  line-height: 1.8;
+}
+
+.cupos-numero {
+
+  display: block;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 70px;
+
+  color: var(--rosa);
+
+  line-height: 1;
+
+  margin: 15px 0;
+}
+
+.cupos-palabra {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 25px;
+
+  color: var(--azul);
+}
+
+
+/* ============================
+   CONFIRMACIÓN
+============================ */
+
+.confirmacion {
+
+  background: var(--rosa-claro);
+}
+
+
+/* ============================
+   FINAL
+============================ */
+
+footer {
+
+  padding: 70px 20px;
+
+  background: var(--azul-oscuro);
+
+  color: white;
+
+  text-align: center;
+}
+
+footer h2 {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(45px,10vw,68px);
+
+  color: var(--rosa-claro);
+
+  margin-bottom: 18px;
+}
+
+.versiculo-final {
+
+  font-size: 11px;
+
+  letter-spacing: 4px;
+
+  color: var(--rosa-claro);
+
+  margin-bottom: 15px;
+}
+
+.fecha-final {
+
+  font-size: 11px;
+
+  letter-spacing: 4px;
+}
+
+
+/* ============================
+   ANIMACIONES
+============================ */
+
+.revelar {
+
+  opacity: 0;
+
+  transform: translateY(35px);
+
+  transition: all .8s ease;
+}
+
+.revelar.visible {
+
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* ============================
+   CELULAR
+============================ */
+
+@media(max-width:650px) {
+
+  .tarjetas {
+
+    grid-template-columns:1fr;
+  }
+
+  .fotos {
+
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  section {
+
+    padding:65px 18px;
+  }
+
+}
+
+</style>
 
 </head>
 
@@ -676,901 +864,1012 @@
 <body class="bloqueado">
 
 
-  <!-- ==============================
-       PANTALLA INICIAL
-  ============================== -->
+<!-- ============================
+     ENTRADA
+============================ -->
 
-  <div class="entrada" id="entrada">
+<div class="entrada" id="entrada">
 
-    <div class="entrada-contenido">
+<div class="entrada-contenido">
 
-      <div class="entrada-monograma">
-        C&P
-      </div>
+<div class="entrada-monograma">
+C&P
+</div>
 
-      <p class="entrada-pequeno">
-        Nuestra boda
-      </p>
+<p class="entrada-pequeno">
+Nuestra boda
+</p>
 
-      <h1>
+<h1>
 
-        Carlos
+Carlos
 
-        <span class="entrada-amp">
-          &
-        </span>
+<span class="entrada-amp">
+&
+</span>
 
-        Pamela
+Pamela
 
-      </h1>
+</h1>
 
-      <p class="entrada-fecha">
-        19 · 12 · 2026
-      </p>
+<p class="entrada-fecha">
+19 · 12 · 2026
+</p>
 
-      <button
-        id="abrirInvitacion"
-        class="boton-abrir"
-        disabled>
+<button
+id="abrirInvitacion"
+class="boton-abrir"
+disabled>
 
-        Cargando invitación...
+Cargando invitación...
 
-      </button>
+</button>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 
-  <!-- MÚSICA -->
+<div
+id="youtube-player"
+class="youtube-player">
+</div>
 
-  <div
-    id="youtube-player"
-    class="youtube-player">
-  </div>
 
+<button
+id="botonMusica"
+class="boton-musica">
 
-  <button
-    id="botonMusica"
-    class="boton-musica"
-    aria-label="Pausar o reproducir música">
+♫
 
-    ♫
+</button>
 
-  </button>
 
+<!-- ============================
+     PORTADA
+============================ -->
 
-  <!-- ==============================
-       PORTADA
-  ============================== -->
+<header class="hero">
 
-  <header class="hero">
+<div class="monograma">
+C&P
+</div>
 
-    <div class="monograma">
-      C&P
-    </div>
+<p class="intro">
+Nuestra boda
+</p>
 
-    <p class="intro">
-      Nuestra boda
-    </p>
+<h1>
 
-    <h1>
+Carlos
 
-      Carlos
+<span class="amp">
+&
+</span>
 
-      <span class="amp">
-        &
-      </span>
+Pamela
 
-      Pamela
+</h1>
 
-    </h1>
+<p class="fecha">
+19 · 12 · 2026
+</p>
 
-    <p class="fecha">
-      19 · 12 · 2026
-    </p>
+<div class="scroll">
+DESLIZA ↓
+</div>
 
-    <div class="scroll">
-      DESLIZA ↓
-    </div>
+</header>
 
-  </header>
 
+<!-- ============================
+     MENSAJE
+============================ -->
 
-  <!-- ==============================
-       MENSAJE
-  ============================== -->
+<section class="mensaje">
 
-  <section class="mensaje">
+<div class="contenedor revelar">
 
-    <div class="contenedor revelar">
+<p class="subtitulo">
+Llegó nuestro momento
+</p>
 
-      <p class="subtitulo">
-        Llegó nuestro momento
-      </p>
+<h2>
+Nos Casamos
+</h2>
 
-      <h2>
-        Nos Casamos
-      </h2>
+<div class="ornamento">
+❦
+</div>
 
-      <div class="ornamento">
-        ❦
-      </div>
+<p class="frase">
 
-      <p class="frase">
+“Hay momentos en la vida que son especiales por sí solos,
+pero compartirlos con las personas que queremos
+los convierte en inolvidables.”
 
-        “Hay momentos en la vida que son especiales por sí solos,
-        pero compartirlos con las personas que queremos
-        los convierte en inolvidables.”
+</p>
 
-      </p>
+<div class="ornamento">
+❦
+</div>
 
-      <div class="ornamento">
-        ❦
-      </div>
+<p class="texto">
 
-      <p class="texto">
+Después de compartir nuestra historia,
+nuestros sueños y nuestros proyectos,
+hemos decidido comenzar juntos un nuevo capítulo.
 
-        Después de compartir nuestra historia,
-        nuestros sueños y nuestros proyectos,
-        hemos decidido comenzar juntos un nuevo capítulo.
+<br><br>
 
-        <br><br>
+Nos hará muy felices que nos acompañes
+en uno de los días más importantes
+de nuestras vidas.
 
-        Nos hará muy felices que nos acompañes
-        en uno de los días más importantes
-        de nuestras vidas.
+</p>
 
-      </p>
+</div>
 
-    </div>
+</section>
 
-  </section>
 
+<!-- ============================
+     CUENTA REGRESIVA
+============================ -->
 
-  <!-- ==============================
-       CUENTA REGRESIVA
-  ============================== -->
+<section class="contador-seccion">
 
-  <section class="contador-seccion">
+<div class="contenedor revelar">
 
-    <div class="contenedor revelar">
+<p class="subtitulo">
+Falta muy poco
+</p>
 
-      <p class="subtitulo">
-        Falta muy poco
-      </p>
+<h2>
+Cuenta Regresiva
+</h2>
 
-      <h2>
-        Cuenta Regresiva
-      </h2>
+<div class="contador">
 
-      <div class="contador">
+<div>
 
-        <div>
+<div class="numero" id="dias">
+00
+</div>
 
-          <div class="numero" id="dias">
-            00
-          </div>
+<div class="etiqueta">
+Días
+</div>
 
-          <div class="etiqueta">
-            Días
-          </div>
+</div>
 
-        </div>
 
+<div>
 
-        <div>
+<div class="numero" id="horas">
+00
+</div>
 
-          <div class="numero" id="horas">
-            00
-          </div>
+<div class="etiqueta">
+Horas
+</div>
 
-          <div class="etiqueta">
-            Horas
-          </div>
+</div>
 
-        </div>
 
+<div>
 
-        <div>
+<div class="numero" id="minutos">
+00
+</div>
 
-          <div class="numero" id="minutos">
-            00
-          </div>
+<div class="etiqueta">
+Minutos
+</div>
 
-          <div class="etiqueta">
-            Minutos
-          </div>
+</div>
 
-        </div>
 
+<div>
 
-        <div>
+<div class="numero" id="segundos">
+00
+</div>
 
-          <div class="numero" id="segundos">
-            00
-          </div>
+<div class="etiqueta">
+Segundos
+</div>
 
-          <div class="etiqueta">
-            Segundos
-          </div>
+</div>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
-    </div>
+</section>
 
-  </section>
 
+<!-- ============================
+     EVENTOS
+============================ -->
 
-  <!-- ==============================
-       EVENTOS
-  ============================== -->
+<section class="eventos">
 
-  <section class="eventos">
+<div class="contenedor revelar">
 
-    <div class="contenedor revelar">
+<p class="subtitulo">
+Acompáñanos
+</p>
 
-      <p class="subtitulo">
-        Acompáñanos
-      </p>
+<h2>
+Nuestro Gran Día
+</h2>
 
-      <h2>
-        Nuestro Gran Día
-      </h2>
+<div class="tarjetas">
 
-      <div class="tarjetas">
 
+<div class="tarjeta">
 
-        <!-- CEREMONIA -->
+<div class="icono">
+♙
+</div>
 
-        <div class="tarjeta">
+<h3>
+Ceremonia
+</h3>
 
-          <div class="icono">
-            ♙
-          </div>
+<p>
+<strong>
+2:00 p. m.
+</strong>
+</p>
 
-          <h3>
-            Ceremonia
-          </h3>
+<p>
+Iglesia Parroquial
+<br>
+Tambor de Alajuela
+</p>
 
-          <p>
-            <strong>
-              2:00 p. m.
-            </strong>
-          </p>
+<p>
+Sábado 19 de diciembre de 2026
+</p>
 
-          <p>
+</div>
 
-            Iglesia Parroquial
 
-            <br>
+<div class="tarjeta">
 
-            Tambor de Alajuela
+<div class="icono">
+◇
+</div>
 
-          </p>
+<h3>
+Recepción
+</h3>
 
-          <p>
-            Sábado 19 de diciembre de 2026
-          </p>
+<p>
+Después de la ceremonia
+</p>
 
-        </div>
+<p>
+Celebraremos juntos este momento tan especial.
+</p>
 
+<a
+class="boton"
+href="https://maps.app.goo.gl/CaPbQP1ztW61NnxFA"
+target="_blank">
 
-        <!-- RECEPCIÓN -->
+Ver ubicación
 
-        <div class="tarjeta">
+</a>
 
-          <div class="icono">
-            ◇
-          </div>
+</div>
 
-          <h3>
-            Recepción
-          </h3>
+</div>
 
-          <p>
-            Después de la ceremonia
-          </p>
+</div>
 
-          <p>
-            Celebraremos juntos este momento tan especial.
-          </p>
+</section>
 
-          <a
-            class="boton"
-            href="https://maps.app.goo.gl/CaPbQP1ztW61NnxFA"
-            target="_blank"
-            rel="noopener noreferrer">
 
-            Ver ubicación
+<!-- ============================
+     VESTIMENTA
+============================ -->
 
-          </a>
+<section class="vestimenta">
 
-        </div>
+<div class="contenedor revelar">
 
-      </div>
+<h2>
+Código de vestimenta
+</h2>
 
-    </div>
+<p class="formal">
+Formal
+</p>
 
-  </section>
+<p class="texto">
 
+Queremos que esta celebración
+se vista de elegancia.
 
-  <!-- ==============================
-       VESTIMENTA
-  ============================== -->
+<br><br>
 
-  <section class="vestimenta">
+Agradecemos a nuestros invitados
+acompañarnos con vestimenta formal.
 
-    <div class="contenedor revelar">
+</p>
 
-      <h2>
-        Código de vestimenta
-      </h2>
+</div>
 
-      <p class="formal">
-        Formal
-      </p>
+</section>
 
-      <p class="texto">
 
-        Queremos que esta celebración
-        se vista de elegancia.
+<!-- ============================
+     PRESENTE
+============================ -->
 
-        <br><br>
+<section class="regalo">
 
-        Agradecemos a nuestros invitados
-        acompañarnos con vestimenta formal.
+<div class="contenedor revelar">
 
-      </p>
+<p class="subtitulo">
+Un detalle especial
+</p>
 
-    </div>
+<h2>
+Con Cariño
+</h2>
 
-  </section>
+<div class="ornamento">
+❦
+</div>
 
+<p class="frase-regalo">
 
-  <!-- ==============================
-       PRESENTE
-  ============================== -->
+Si desean tener un detalle con nosotros,
+puede ser en efectivo.
 
-  <section class="regalo">
+</p>
 
-    <div class="contenedor revelar">
+</div>
 
-      <p class="subtitulo">
-        Un detalle especial
-      </p>
+</section>
 
-      <h2>
-        Con Cariño
-      </h2>
 
-      <div class="ornamento">
-        ❦
-      </div>
+<!-- ============================
+     FOTOS
+============================ -->
 
-      <p class="frase-regalo">
+<section class="galeria">
 
-        Si desean tener un detalle con nosotros,
-        puede ser en efectivo.
+<div class="contenedor revelar">
 
-      </p>
+<p class="subtitulo">
+Nuestra historia
+</p>
 
-    </div>
+<h2>
+Nuestros Momentos
+</h2>
 
-  </section>
+<p class="texto">
 
+Algunos recuerdos de nuestra historia
+y del camino que nos ha traído hasta aquí.
 
-  <!-- ==============================
-       GALERÍA
-  ============================== -->
+</p>
 
-  <section class="galeria">
+<div class="fotos">
 
-    <div class="contenedor revelar">
+<div class="foto-placeholder">
+Foto 1
+</div>
 
-      <p class="subtitulo">
-        Nuestra historia
-      </p>
+<div class="foto-placeholder">
+Foto 2
+</div>
 
-      <h2>
-        Nuestros Momentos
-      </h2>
+<div class="foto-placeholder">
+Foto 3
+</div>
 
-      <p class="texto">
+<div class="foto-placeholder">
+Foto 4
+</div>
 
-        Algunos recuerdos de nuestra historia
-        y del camino que nos ha traído hasta aquí.
+<div class="foto-placeholder">
+Foto 5
+</div>
 
-      </p>
+<div class="foto-placeholder">
+Foto 6
+</div>
 
-      <div class="fotos">
+</div>
 
-        <div class="foto-placeholder">
-          Foto 1
-        </div>
+</div>
 
-        <div class="foto-placeholder">
-          Foto 2
-        </div>
+</section>
 
-        <div class="foto-placeholder">
-          Foto 3
-        </div>
 
-        <div class="foto-placeholder">
-          Foto 4
-        </div>
+<!-- ======================================
+     CUPOS PERSONALIZADOS
+====================================== -->
 
-        <div class="foto-placeholder">
-          Foto 5
-        </div>
+<section class="cupos">
 
-        <div class="foto-placeholder">
-          Foto 6
-        </div>
+<div class="contenedor revelar">
 
-      </div>
+<p class="subtitulo">
+Tu invitación
+</p>
 
-    </div>
+<h2>
+Hemos reservado un lugar para ti
+</h2>
 
-  </section>
+<div class="tarjeta-cupos">
 
+<div
+class="nombre-invitado"
+id="nombreInvitado">
 
-  <!-- ==============================
-       CONFIRMACIÓN
-  ============================== -->
+Invitado especial
 
-  <section class="confirmacion">
+</div>
 
-    <div class="contenedor revelar">
 
-      <p class="subtitulo">
-        Queremos celebrar contigo
-      </p>
+<p class="cupos-mensaje">
 
-      <h2>
-        Confirma tu Asistencia
-      </h2>
+Con mucho cariño hemos reservado
 
-      <p class="texto">
+<span
+class="cupos-numero"
+id="numeroCupos">
 
-        Para nosotros es muy importante saber
-        si podremos contar con tu compañía
-        en este día tan especial.
+1
 
-      </p>
+</span>
 
-      <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSeEP-mimgP5zfKe4mhEwjb7iPlhFYDIfb_6I7_ir6myQ2Nxxg/viewform?usp=header"
-        class="boton"
-        target="_blank"
-        rel="noopener noreferrer">
+<span
+class="cupos-palabra"
+id="textoCupos">
 
-        Confirmar asistencia
+espacio para ti
 
-      </a>
+</span>
 
-    </div>
+</p>
 
-  </section>
+</div>
 
+</div>
 
-  <!-- ==============================
-       FINAL MODIFICADO
-  ============================== -->
+</section>
 
-  <footer>
 
-    <h2>
-      Carlos & Pamela
-    </h2>
+<!-- ============================
+     CONFIRMACIÓN
+============================ -->
 
-    <p class="versiculo-final">
-      CANTARES 3:4
-    </p>
+<section class="confirmacion">
 
-    <p class="fecha-final">
-      19 · DICIEMBRE · 2026
-    </p>
+<div class="contenedor revelar">
 
-  </footer>
+<p class="subtitulo">
+Queremos celebrar contigo
+</p>
 
+<h2>
+Confirma tu Asistencia
+</h2>
 
-  <!-- ==============================
-       JAVASCRIPT
-  ============================== -->
+<p class="texto">
 
-  <script>
+Para nosotros es muy importante saber
+si podremos contar con tu compañía
+en este día tan especial.
 
+</p>
 
-    /* CUENTA REGRESIVA */
 
-    const fechaBoda =
-      new Date("2026-12-19T14:00:00-06:00").getTime();
+<a
+href="https://docs.google.com/forms/d/e/1FAIpQLSeEP-mimgP5zfKe4mhEwjb7iPlhFYDIfb_6I7_ir6myQ2Nxxg/viewform?usp=header"
+class="boton"
+target="_blank">
 
+Confirmar asistencia
 
-    function actualizarContador() {
+</a>
 
-      const ahora =
-        new Date().getTime();
+</div>
 
-      const diferencia =
-        fechaBoda - ahora;
+</section>
 
 
-      if (diferencia <= 0) {
+<!-- ============================
+     FINAL
+============================ -->
 
-        document.getElementById("dias").innerHTML =
-          "00";
+<footer>
 
-        document.getElementById("horas").innerHTML =
-          "00";
+<h2>
+Carlos & Pamela
+</h2>
 
-        document.getElementById("minutos").innerHTML =
-          "00";
+<p class="versiculo-final">
+CANTARES 3:4
+</p>
 
-        document.getElementById("segundos").innerHTML =
-          "00";
+<p class="fecha-final">
+19 · DICIEMBRE · 2026
+</p>
 
-        return;
+</footer>
 
-      }
 
+<script>
 
-      const dias =
-        Math.floor(
-          diferencia /
-          (1000 * 60 * 60 * 24)
-        );
 
+/* ============================
+   DATOS PERSONALIZADOS
+============================ */
 
-      const horas =
-        Math.floor(
-          (
-            diferencia %
-            (1000 * 60 * 60 * 24)
-          ) /
-          (1000 * 60 * 60)
-        );
+const parametros =
+new URLSearchParams(
+window.location.search
+);
 
 
-      const minutos =
-        Math.floor(
-          (
-            diferencia %
-            (1000 * 60 * 60)
-          ) /
-          (1000 * 60)
-        );
+const nombre =
+parametros.get("nombre");
 
 
-      const segundos =
-        Math.floor(
-          (
-            diferencia %
-            (1000 * 60)
-          ) /
-          1000
-        );
+const cupos =
+parseInt(
+parametros.get("cupos")
+);
 
 
-      document.getElementById("dias").innerHTML =
-        dias;
+/* NOMBRE */
 
+if(nombre){
 
-      document.getElementById("horas").innerHTML =
-        String(horas).padStart(2, "0");
+document
+.getElementById("nombreInvitado")
+.textContent =
+nombre;
 
+}
 
-      document.getElementById("minutos").innerHTML =
-        String(minutos).padStart(2, "0");
 
+/* CUPOS */
 
-      document.getElementById("segundos").innerHTML =
-        String(segundos).padStart(2, "0");
+if(
+cupos &&
+cupos > 0
+){
 
-    }
+document
+.getElementById("numeroCupos")
+.textContent =
+cupos;
 
 
-    actualizarContador();
+/* SINGULAR */
 
-    setInterval(
-      actualizarContador,
-      1000
-    );
+if(cupos === 1){
 
+document
+.getElementById("textoCupos")
+.textContent =
+"espacio para ti";
 
-    /* ANIMACIONES */
+}
 
-    const elementos =
-      document.querySelectorAll(".revelar");
 
+/* PLURAL */
 
-    const observer =
-      new IntersectionObserver(
+else{
 
-        (entradas) => {
+document
+.getElementById("textoCupos")
+.textContent =
+"espacios para ustedes";
 
-          entradas.forEach(
+}
 
-            (entrada) => {
+}
 
-              if (entrada.isIntersecting) {
 
-                entrada.target.classList.add(
-                  "visible"
-                );
+/* ============================
+   CONTADOR
+============================ */
 
-              }
+const fechaBoda =
+new Date(
+"2026-12-19T14:00:00-06:00"
+).getTime();
 
-            }
 
-          );
+function actualizarContador(){
 
-        },
+const ahora =
+new Date().getTime();
 
-        {
-          threshold: 0.15
-        }
 
-      );
+const diferencia =
+fechaBoda - ahora;
 
 
-    elementos.forEach(
+if(diferencia <= 0){
 
-      (elemento) => {
+document.getElementById("dias").innerHTML="00";
 
-        observer.observe(
-          elemento
-        );
+document.getElementById("horas").innerHTML="00";
 
-      }
+document.getElementById("minutos").innerHTML="00";
 
-    );
+document.getElementById("segundos").innerHTML="00";
 
+return;
 
-    /* ==============================
-       MÚSICA YOUTUBE
-    ============================== */
+}
 
-    const botonAbrir =
-      document.getElementById(
-        "abrirInvitacion"
-      );
 
+const dias =
+Math.floor(
+diferencia /
+(1000*60*60*24)
+);
 
-    const entrada =
-      document.getElementById(
-        "entrada"
-      );
 
+const horas =
+Math.floor(
+(diferencia %
+(1000*60*60*24))
+/
+(1000*60*60)
+);
 
-    const botonMusica =
-      document.getElementById(
-        "botonMusica"
-      );
 
+const minutos =
+Math.floor(
+(diferencia %
+(1000*60*60))
+/
+(1000*60)
+);
 
-    let reproductor;
 
-    let musicaActiva =
-      false;
+const segundos =
+Math.floor(
+(diferencia %
+(1000*60))
+/
+1000
+);
 
-    let youtubeListo =
-      false;
 
+document.getElementById("dias").innerHTML =
+dias;
 
-    const youtubeScript =
-      document.createElement(
-        "script"
-      );
 
+document.getElementById("horas").innerHTML =
+String(horas).padStart(2,"0");
 
-    youtubeScript.src =
-      "https://www.youtube.com/iframe_api";
 
+document.getElementById("minutos").innerHTML =
+String(minutos).padStart(2,"0");
 
-    document.head.appendChild(
-      youtubeScript
-    );
 
+document.getElementById("segundos").innerHTML =
+String(segundos).padStart(2,"0");
 
-    function onYouTubeIframeAPIReady() {
+}
 
-      reproductor =
-        new YT.Player(
 
-          "youtube-player",
+actualizarContador();
 
-          {
+setInterval(
+actualizarContador,
+1000
+);
 
-            height: "1",
 
-            width: "1",
+/* ============================
+   ANIMACIONES
+============================ */
 
-            videoId:
-              "b5Zay_Hd_7Q",
+const elementos =
+document.querySelectorAll(
+".revelar"
+);
 
-            playerVars: {
 
-              autoplay: 0,
+const observer =
+new IntersectionObserver(
 
-              controls: 0,
+entradas => {
 
-              disablekb: 1,
+entradas.forEach(
 
-              fs: 0,
+entrada => {
 
-              playsinline: 1,
+if(
+entrada.isIntersecting
+){
 
-              rel: 0,
+entrada.target
+.classList
+.add(
+"visible"
+);
 
-              loop: 1,
+}
 
-              playlist:
-                "b5Zay_Hd_7Q"
+}
 
-            },
+);
 
+},
 
-            events: {
+{
+threshold:.15
+}
 
-              onReady:
-                function () {
+);
 
-                  youtubeListo =
-                    true;
 
+elementos.forEach(
+elemento => {
 
-                  reproductor.setVolume(
-                    35
-                  );
+observer.observe(
+elemento
+);
 
+}
+);
 
-                  botonAbrir.disabled =
-                    false;
 
+/* ============================
+   MÚSICA
+============================ */
 
-                  botonAbrir.innerHTML =
-                    "Abrir invitación ♫";
+const botonAbrir =
+document.getElementById(
+"abrirInvitacion"
+);
 
-                }
 
-            }
+const entrada =
+document.getElementById(
+"entrada"
+);
 
-          }
 
-        );
+const botonMusica =
+document.getElementById(
+"botonMusica"
+);
 
-    }
 
+let reproductor;
 
-    /*
-      Si YouTube tarda demasiado,
-      igualmente dejamos entrar
-      a la invitación.
-    */
+let musicaActiva =
+false;
 
-    setTimeout(
+let youtubeListo =
+false;
 
-      function () {
 
-        if (!youtubeListo) {
+const youtubeScript =
+document.createElement(
+"script"
+);
 
-          botonAbrir.disabled =
-            false;
 
-          botonAbrir.innerHTML =
-            "Abrir invitación";
+youtubeScript.src =
+"https://www.youtube.com/iframe_api";
 
-        }
 
-      },
+document.head.appendChild(
+youtubeScript
+);
 
-      5000
 
-    );
+function onYouTubeIframeAPIReady(){
 
+reproductor =
+new YT.Player(
 
-    /* ABRIR INVITACIÓN */
+"youtube-player",
 
-    botonAbrir.addEventListener(
+{
 
-      "click",
+height:"1",
 
-      function () {
+width:"1",
 
-        entrada.classList.add(
-          "oculta"
-        );
+videoId:
+"b5Zay_Hd_7Q",
 
+playerVars:{
 
-        document.body.classList.remove(
-          "bloqueado"
-        );
+autoplay:0,
 
+controls:0,
 
-        if (
-          reproductor &&
-          youtubeListo
-        ) {
+playsinline:1,
 
-          botonMusica.style.display =
-            "block";
+loop:1,
 
+playlist:
+"b5Zay_Hd_7Q"
 
-          reproductor.setVolume(
-            35
-          );
+},
 
+events:{
 
-          reproductor.playVideo();
+onReady:
+function(){
 
+youtubeListo =
+true;
 
-          musicaActiva =
-            true;
+reproductor
+.setVolume(
+35
+);
 
+botonAbrir
+.disabled =
+false;
 
-          botonMusica.innerHTML =
-            "❚❚";
+botonAbrir
+.innerHTML =
+"Abrir invitación ♫";
 
-        }
+}
 
-      }
+}
 
-    );
+}
 
+);
 
-    /* PAUSAR / REPRODUCIR */
+}
 
-    botonMusica.addEventListener(
 
-      "click",
+setTimeout(
 
-      function () {
+function(){
 
-        if (!reproductor) {
-          return;
-        }
+if(!youtubeListo){
 
+botonAbrir.disabled =
+false;
 
-        if (musicaActiva) {
+botonAbrir.innerHTML =
+"Abrir invitación";
 
-          reproductor.pauseVideo();
+}
 
-          musicaActiva =
-            false;
+},
 
-          botonMusica.innerHTML =
-            "♫";
+5000
 
-        }
+);
 
 
-        else {
+/* ABRIR INVITACIÓN */
 
-          reproductor.playVideo();
+botonAbrir
+.addEventListener(
 
-          reproductor.setVolume(
-            35
-          );
+"click",
 
-          musicaActiva =
-            true;
+function(){
 
-          botonMusica.innerHTML =
-            "❚❚";
+entrada
+.classList
+.add(
+"oculta"
+);
 
-        }
+document.body
+.classList
+.remove(
+"bloqueado"
+);
 
-      }
 
-    );
+if(
+reproductor &&
+youtubeListo
+){
 
+botonMusica
+.style
+.display =
+"block";
 
-  </script>
+reproductor
+.setVolume(
+35
+);
+
+reproductor
+.playVideo();
+
+musicaActiva =
+true;
+
+botonMusica
+.innerHTML =
+"❚❚";
+
+}
+
+}
+
+);
+
+
+/* PAUSA */
+
+botonMusica
+.addEventListener(
+
+"click",
+
+function(){
+
+if(!reproductor){
+return;
+}
+
+
+if(musicaActiva){
+
+reproductor
+.pauseVideo();
+
+musicaActiva =
+false;
+
+botonMusica
+.innerHTML =
+"♫";
+
+}
+
+else{
+
+reproductor
+.playVideo();
+
+reproductor
+.setVolume(
+35
+);
+
+musicaActiva =
+true;
+
+botonMusica
+.innerHTML =
+"❚❚";
+
+}
+
+}
+
+);
+
+</script>
 
 </body>
 
