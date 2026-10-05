@@ -140,7 +140,7 @@ body.bloqueado {
 
   font-family: 'Cormorant Garamond', serif;
 
-  font-size: clamp(55px, 13vw, 90px);
+  font-size: clamp(55px,13vw,90px);
 
   font-weight: 500;
 
@@ -275,7 +275,6 @@ body.bloqueado {
       rgba(23,29,41,.70),
       rgba(23,29,41,.70)
     ),
-
     linear-gradient(
       135deg,
       #171d29,
@@ -390,6 +389,7 @@ body.bloqueado {
   50% {
     transform: translateY(8px);
   }
+
 }
 
 
@@ -684,7 +684,7 @@ h2 {
 
 
 /* =====================================
-   GALERÍA
+   GALERÍA DE FOTOS
 ===================================== */
 
 .galeria {
@@ -703,25 +703,107 @@ h2 {
   margin-top: 40px;
 }
 
-.foto-placeholder {
+.foto {
 
-  aspect-ratio: 3/4;
+  position: relative;
 
-  border: 1px dashed var(--rosa);
+  overflow: hidden;
 
-  background: rgba(255,255,255,.7);
+  background: white;
 
-  display: flex;
+  box-shadow:
+    0 8px 25px
+    rgba(0,0,0,.08);
 
-  justify-content: center;
+  cursor: pointer;
+}
+
+.foto img {
+
+  width: 100%;
+
+  height: 100%;
+
+  aspect-ratio: 3 / 4;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform .5s ease,
+    filter .5s ease;
+}
+
+.foto:hover img {
+
+  transform: scale(1.04);
+}
+
+
+/* LA FOTO 7 QUEDA CENTRADA */
+
+.foto:last-child {
+
+  grid-column: 2;
+}
+
+
+/* VISOR DE FOTO GRANDE */
+
+.lightbox {
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(10,15,25,.93);
+
+  display: none;
 
   align-items: center;
 
-  font-size: 11px;
+  justify-content: center;
 
-  color: #777;
+  z-index: 999999;
 
-  text-transform: uppercase;
+  padding: 25px;
+}
+
+.lightbox.activo {
+
+  display: flex;
+}
+
+.lightbox img {
+
+  max-width: 95%;
+
+  max-height: 90vh;
+
+  object-fit: contain;
+
+  box-shadow:
+    0 12px 50px
+    rgba(0,0,0,.5);
+}
+
+.cerrar-lightbox {
+
+  position: absolute;
+
+  top: 20px;
+
+  right: 25px;
+
+  color: white;
+
+  font-size: 35px;
+
+  cursor: pointer;
+
+  font-family: Arial, sans-serif;
 }
 
 
@@ -887,7 +969,19 @@ footer h2 {
 
   .fotos {
 
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns:
+      repeat(2,1fr);
+
+    gap: 9px;
+  }
+
+  .foto:last-child {
+
+    grid-column: 1 / 3;
+
+    width: calc(50% - 5px);
+
+    justify-self: center;
   }
 
   .contador {
@@ -1191,18 +1285,16 @@ Sábado 19 de diciembre de 2026
 
 
 <p class="aviso-ceremonia">
+
 Agradecemos nos acompañen desde la ceremonia.
+
 </p>
 
 
 <a
-
 class="boton"
-
 href="https://maps.app.goo.gl/EBCR6fdzytvMvG4w5"
-
 target="_blank"
-
 rel="noopener noreferrer">
 
 Ver ubicación
@@ -1229,18 +1321,16 @@ Después de la ceremonia
 </p>
 
 <p>
+
 Celebraremos juntos este momento tan especial.
+
 </p>
 
 
 <a
-
 class="boton"
-
 href="https://maps.app.goo.gl/CaPbQP1ztW61NnxFA"
-
 target="_blank"
-
 rel="noopener noreferrer">
 
 Ver ubicación
@@ -1266,11 +1356,15 @@ Ver ubicación
 <div class="contenedor revelar">
 
 <h2>
+
 Código de vestimenta
+
 </h2>
 
 <p class="formal">
+
 Formal
+
 </p>
 
 <p class="texto">
@@ -1299,15 +1393,21 @@ acompañarnos con vestimenta formal.
 <div class="contenedor revelar">
 
 <p class="subtitulo">
+
 Un detalle especial
+
 </p>
 
 <h2>
+
 Con Cariño
+
 </h2>
 
 <div class="ornamento">
+
 ❦
+
 </div>
 
 <p class="frase-regalo">
@@ -1323,7 +1423,7 @@ puede ser en efectivo.
 
 
 <!-- =====================================
-     FOTOS
+     GALERÍA CON LAS 7 FOTOS
 ===================================== -->
 
 <section class="galeria">
@@ -1331,11 +1431,15 @@ puede ser en efectivo.
 <div class="contenedor revelar">
 
 <p class="subtitulo">
+
 Nuestra historia
+
 </p>
 
 <h2>
+
 Nuestros Momentos
+
 </h2>
 
 <p class="texto">
@@ -1348,35 +1452,125 @@ y del camino que nos ha traído hasta aquí.
 
 <div class="fotos">
 
-<div class="foto-placeholder">
-Foto 1
+
+<div
+class="foto"
+onclick="abrirFoto('img/foto1.jpeg')">
+
+<img
+src="img/foto1.jpeg"
+alt="Carlos y Pamela - Foto 1"
+loading="lazy">
+
 </div>
 
-<div class="foto-placeholder">
-Foto 2
+
+<div
+class="foto"
+onclick="abrirFoto('img/foto2.jpeg')">
+
+<img
+src="img/foto2.jpeg"
+alt="Carlos y Pamela - Foto 2"
+loading="lazy">
+
 </div>
 
-<div class="foto-placeholder">
-Foto 3
+
+<div
+class="foto"
+onclick="abrirFoto('img/foto3.jpeg')">
+
+<img
+src="img/foto3.jpeg"
+alt="Carlos y Pamela - Foto 3"
+loading="lazy">
+
 </div>
 
-<div class="foto-placeholder">
-Foto 4
+
+<div
+class="foto"
+onclick="abrirFoto('img/foto4.jpeg')">
+
+<img
+src="img/foto4.jpeg"
+alt="Carlos y Pamela - Foto 4"
+loading="lazy">
+
 </div>
 
-<div class="foto-placeholder">
-Foto 5
+
+<div
+class="foto"
+onclick="abrirFoto('img/foto5.jpeg')">
+
+<img
+src="img/foto5.jpeg"
+alt="Carlos y Pamela - Foto 5"
+loading="lazy">
+
 </div>
 
-<div class="foto-placeholder">
-Foto 6
+
+<div
+class="foto"
+onclick="abrirFoto('img/foto6.jpeg')">
+
+<img
+src="img/foto6.jpeg"
+alt="Carlos y Pamela - Foto 6"
+loading="lazy">
+
 </div>
+
+
+<div
+class="foto"
+onclick="abrirFoto('img/foto7.jpeg')">
+
+<img
+src="img/foto7.jpeg"
+alt="Carlos y Pamela - Foto 7"
+loading="lazy">
+
+</div>
+
 
 </div>
 
 </div>
 
 </section>
+
+
+<!-- =====================================
+     VISOR DE FOTOS
+===================================== -->
+
+<div
+class="lightbox"
+id="lightbox"
+onclick="cerrarFoto(event)">
+
+
+<span
+class="cerrar-lightbox"
+onclick="cerrarFoto(event)">
+
+×
+
+
+</span>
+
+
+<img
+id="fotoGrande"
+src=""
+alt="Fotografía de Carlos y Pamela">
+
+
+</div>
 
 
 <!-- =====================================
@@ -1388,11 +1582,15 @@ Foto 6
 <div class="contenedor revelar">
 
 <p class="subtitulo">
+
 Tu invitación
+
 </p>
 
 <h2>
+
 Tu invitación especial
+
 </h2>
 
 
@@ -1450,11 +1648,15 @@ espacio para usted
 <div class="contenedor revelar">
 
 <p class="subtitulo">
+
 Queremos celebrar contigo
+
 </p>
 
 <h2>
+
 Confirma tu Asistencia
+
 </h2>
 
 <p class="texto">
@@ -1467,13 +1669,9 @@ en este día tan especial.
 
 
 <a
-
 href="https://docs.google.com/forms/d/e/1FAIpQLSeEP-mimgP5zfKe4mhEwjb7iPlhFYDIfb_6I7_ir6myQ2Nxxg/viewform?usp=header"
-
 class="boton"
-
 target="_blank"
-
 rel="noopener noreferrer">
 
 Confirmar asistencia
@@ -1492,19 +1690,24 @@ Confirmar asistencia
 <footer>
 
 <h2>
+
 Carlos & Pamela
+
 </h2>
 
 <p class="versiculo-final">
+
 CANTARES 3:4
+
 </p>
 
 <p class="fecha-final">
+
 19 · DICIEMBRE · 2026
+
 </p>
 
 </footer>
-
 
 
 <script>
@@ -1563,9 +1766,7 @@ document
 cupos;
 
 
-/* ============================
-   1 ESPACIO
-============================ */
+/* 1 */
 
 if(cupos === 1){
 
@@ -1579,9 +1780,7 @@ document
 }
 
 
-/* ============================
-   2 ESPACIOS
-============================ */
+/* 2 */
 
 else if(cupos === 2){
 
@@ -1595,26 +1794,7 @@ document
 }
 
 
-/* ============================
-   3 A 8 ESPACIOS
-============================ */
-
-else if(
-cupos >= 3 &&
-cupos <= 8
-){
-
-document
-.getElementById(
-"textoCupos"
-)
-.textContent =
-"espacios para usted y sus acompañantes";
-
-}
-
-
-/* MÁS DE 8 TAMBIÉN FUNCIONA */
+/* 3 O MÁS */
 
 else{
 
@@ -1626,6 +1806,78 @@ document
 "espacios para usted y sus acompañantes";
 
 }
+
+}
+
+
+/* =====================================
+   GALERÍA GRANDE
+===================================== */
+
+
+function abrirFoto(ruta){
+
+const lightbox =
+document
+.getElementById(
+"lightbox"
+);
+
+
+const fotoGrande =
+document
+.getElementById(
+"fotoGrande"
+);
+
+
+fotoGrande.src =
+ruta;
+
+
+lightbox
+.classList
+.add(
+"activo"
+);
+
+
+document
+.body
+.style
+.overflow =
+"hidden";
+
+}
+
+
+function cerrarFoto(event){
+
+if(
+event.target.id ===
+"fotoGrande"
+){
+
+return;
+
+}
+
+
+document
+.getElementById(
+"lightbox"
+)
+.classList
+.remove(
+"activo"
+);
+
+
+document
+.body
+.style
+.overflow =
+"";
 
 }
 
@@ -1827,6 +2079,7 @@ actualizarContador,
    ANIMACIONES
 ===================================== */
 
+
 const elementos =
 document
 .querySelectorAll(
@@ -1889,6 +2142,7 @@ elemento
 /* =====================================
    MÚSICA
 ===================================== */
+
 
 const botonAbrir =
 document
@@ -2038,6 +2292,7 @@ botonAbrir
    ABRIR INVITACIÓN
 ===================================== */
 
+
 botonAbrir
 .addEventListener(
 
@@ -2099,6 +2354,7 @@ botonMusica
 /* =====================================
    PAUSAR / REPRODUCIR
 ===================================== */
+
 
 botonMusica
 .addEventListener(
