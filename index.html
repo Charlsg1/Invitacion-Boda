@@ -1,4 +1,4 @@
-}<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -988,6 +988,33 @@ h2 {
   background: var(--rosa-claro);
 }
 
+.fecha-limite-confirmacion {
+  max-width: 560px;
+
+  margin: 28px auto 5px;
+
+  padding: 18px 20px;
+
+  border-top: 1px solid rgba(23,29,41,.22);
+  border-bottom: 1px solid rgba(23,29,41,.22);
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 23px;
+
+  line-height: 1.45;
+
+  color: var(--azul-oscuro);
+}
+
+.fecha-limite-confirmacion strong {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 27px;
+}
+
 
 /* =====================================
    FINAL
@@ -1103,6 +1130,14 @@ footer h2 {
     height: 52px;
   }
 
+  .fecha-limite-confirmacion {
+    font-size: 21px;
+  }
+
+  .fecha-limite-confirmacion strong {
+    font-size: 24px;
+  }
+
   section {
     padding: 65px 18px;
   }
@@ -1125,8 +1160,6 @@ footer h2 {
 
 <div class="video-intro-contenido">
 
-
-<!-- MENSAJE ANTES DEL VIDEO -->
 
 <div id="antesVideo">
 
@@ -1160,8 +1193,6 @@ Ver nuestro mensaje
 </div>
 
 
-<!-- VIDEO -->
-
 <div
 class="reproductor-boda"
 id="reproductorBoda">
@@ -1184,8 +1215,6 @@ Tu navegador no puede reproducir este video.
 
 </div>
 
-
-<!-- APARECE CUANDO TERMINA -->
 
 <div
 class="video-final"
@@ -1418,8 +1447,6 @@ Nuestro Gran Día
 <div class="tarjetas">
 
 
-<!-- CEREMONIA -->
-
 <div class="tarjeta">
 
 <div class="icono">
@@ -1462,8 +1489,6 @@ Ver ubicación
 
 </div>
 
-
-<!-- RECEPCIÓN -->
 
 <div class="tarjeta">
 
@@ -1904,6 +1929,19 @@ en este día tan especial.
 
 </p>
 
+
+<p class="fecha-limite-confirmacion">
+
+Agradecemos confirmar su asistencia
+a más tardar el
+
+<strong>
+15 de noviembre de 2026
+</strong>
+
+</p>
+
+
 <a
 href="https://docs.google.com/forms/d/e/1FAIpQLSeEP-mimgP5zfKe4mhEwjb7iPlhFYDIfb_6I7_ir6myQ2Nxxg/viewform?usp=header"
 class="boton"
@@ -1990,13 +2028,6 @@ videoBoda
 .play()
 .catch(
 function(){
-
-/*
-Si el navegador no permite
-reproducción automática,
-el usuario puede tocar Play
-en el reproductor.
-*/
 
 }
 );
@@ -2431,13 +2462,6 @@ reproductor.setVolume(
 35
 );
 
-
-/*
-Si la invitación ya fue abierta
-cuando YouTube termina de cargar,
-mostramos el botón de música.
-*/
-
 if(
 invitacionAbierta
 ){
@@ -2469,16 +2493,11 @@ function(){
 invitacionAbierta =
 true;
 
-
-/* Detener video */
-
 videoBoda.pause();
 
 videoBoda.currentTime =
 videoBoda.duration || 0;
 
-
-/* Ocultar pantalla del video */
 
 videoIntro
 .classList
@@ -2487,16 +2506,12 @@ videoIntro
 );
 
 
-/* Permitir desplazamiento */
-
 document.body
 .classList
 .remove(
 "bloqueado"
 );
 
-
-/* Ir arriba de la invitación */
 
 window.scrollTo(
 {
@@ -2505,8 +2520,6 @@ behavior:"instant"
 }
 );
 
-
-/* Iniciar música */
 
 if(
 reproductor &&
