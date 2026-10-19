@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+}<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -47,12 +47,13 @@ body.bloqueado {
 
 
 /* =====================================
-   PANTALLA INICIAL
+   VIDEO INICIAL
 ===================================== */
 
-.entrada {
+.video-intro {
   position: fixed;
   inset: 0;
+
   width: 100%;
   height: 100%;
 
@@ -63,38 +64,39 @@ body.bloqueado {
       #171d29 75%
     );
 
-  z-index: 99999;
+  z-index: 999999;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  text-align: center;
-  color: white;
+  padding: 20px;
 
-  padding: 25px;
+  color: white;
 
   transition:
     opacity .8s ease,
     visibility .8s ease;
 }
 
-.entrada.oculta {
+.video-intro.oculto {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
-.entrada-contenido {
+.video-intro-contenido {
   width: 100%;
-  max-width: 550px;
+  max-width: 700px;
+
+  text-align: center;
 }
 
-.entrada-monograma {
-  width: 125px;
-  height: 125px;
+.video-monograma {
+  width: 95px;
+  height: 95px;
 
-  margin: 0 auto 30px;
+  margin: 0 auto 25px;
 
   border: 1px solid var(--rosa-claro);
   border-radius: 50%;
@@ -104,72 +106,137 @@ body.bloqueado {
   justify-content: center;
 
   font-family: 'Cormorant Garamond', serif;
-  font-size: 48px;
+
+  font-size: 38px;
 
   color: var(--rosa-claro);
 }
 
-.entrada-pequeno {
+.video-subtitulo {
   text-transform: uppercase;
-  letter-spacing: 5px;
 
-  font-size: 11px;
+  letter-spacing: 4px;
+
+  font-size: 10px;
 
   color: var(--rosa-claro);
 
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
-.entrada h1 {
+.video-intro h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(55px, 13vw, 90px);
+
+  font-size: clamp(42px, 10vw, 68px);
+
   font-weight: 500;
-  line-height: .9;
+
+  line-height: 1.05;
+
+  margin-bottom: 18px;
 }
 
-.entrada-amp {
-  display: block;
-  color: var(--rosa-claro);
-  font-size: .65em;
-  margin: 14px 0;
+.video-texto {
+  max-width: 520px;
+
+  margin: 0 auto;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  color: rgba(255,255,255,.88);
 }
 
-.entrada-fecha {
-  margin-top: 30px;
+.boton-video {
+  display: inline-block;
 
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 23px;
-  letter-spacing: 3px;
-}
+  margin-top: 32px;
 
-.boton-abrir {
-  margin-top: 38px;
+  padding: 16px 28px;
 
   border: 1px solid var(--rosa-claro);
-  background: transparent;
-  color: white;
 
-  padding: 16px 30px;
+  background: transparent;
+
+  color: white;
 
   font-family: 'Montserrat', sans-serif;
 
-  text-transform: uppercase;
-  letter-spacing: 3px;
   font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
 
   cursor: pointer;
 
   transition: .3s;
 }
 
-.boton-abrir:hover {
+.boton-video:hover {
   background: var(--rosa-claro);
+
   color: var(--azul-oscuro);
 }
 
-.boton-abrir:disabled {
-  opacity: .5;
-  cursor: default;
+
+/* CONTENEDOR DEL VIDEO */
+
+.reproductor-boda {
+  display: none;
+
+  width: 100%;
+
+  max-width: 700px;
+
+  margin: auto;
+}
+
+.reproductor-boda.activo {
+  display: block;
+}
+
+.video-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  background: #000;
+
+  box-shadow:
+    0 15px 50px
+    rgba(0,0,0,.45);
+}
+
+.video-wrapper video {
+  width: 100%;
+
+  display: block;
+
+  max-height: 72vh;
+
+  background: black;
+}
+
+.video-final {
+  display: none;
+
+  margin-top: 25px;
+}
+
+.video-final.visible {
+  display: block;
+}
+
+.video-final p {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 25px;
+
+  margin-bottom: 5px;
+
+  color: var(--rosa-claro);
 }
 
 
@@ -260,6 +327,7 @@ body.bloqueado {
   height: 115px;
 
   border: 1px solid var(--rosa-claro);
+
   border-radius: 50%;
 
   display: flex;
@@ -277,8 +345,11 @@ body.bloqueado {
 
 .hero .intro {
   text-transform: uppercase;
+
   letter-spacing: 5px;
+
   font-size: 12px;
+
   margin-bottom: 15px;
 }
 
@@ -583,7 +654,7 @@ h2 {
 }
 
 
-/* COLORES RESERVADOS PARA LOS NOVIOS */
+/* COLORES RESERVADOS */
 
 .colores-novios {
   max-width: 520px;
@@ -759,7 +830,7 @@ h2 {
 
   justify-content: center;
 
-  z-index: 999999;
+  z-index: 9999999;
 
   padding: 25px;
 }
@@ -984,6 +1055,23 @@ footer h2 {
 
 @media(max-width:650px) {
 
+  .video-intro {
+    padding: 15px;
+  }
+
+  .video-monograma {
+    width: 80px;
+    height: 80px;
+
+    font-size: 32px;
+
+    margin-bottom: 20px;
+  }
+
+  .video-wrapper video {
+    max-height: 65vh;
+  }
+
   .tarjetas {
     grid-template-columns: 1fr;
   }
@@ -1030,43 +1118,88 @@ footer h2 {
 
 
 <!-- =====================================
-     PANTALLA INICIAL
+     VIDEO ANTES DE LA INVITACIÓN
 ===================================== -->
 
-<div class="entrada" id="entrada">
+<div class="video-intro" id="videoIntro">
 
-<div class="entrada-contenido">
+<div class="video-intro-contenido">
 
-<div class="entrada-monograma">
+
+<!-- MENSAJE ANTES DEL VIDEO -->
+
+<div id="antesVideo">
+
+<div class="video-monograma">
 C&P
 </div>
 
-<p class="entrada-pequeno">
-Nuestra boda
+<p class="video-subtitulo">
+Carlos & Pamela
 </p>
 
 <h1>
-
-Carlos
-
-<span class="entrada-amp">
-&
-</span>
-
-Pamela
-
+Tenemos un mensaje para ti
 </h1>
 
-<p class="entrada-fecha">
-19 · 12 · 2026
+<p class="video-texto">
+
+Antes de descubrir todos los detalles de nuestro gran día,
+queremos compartir contigo unas palabras muy especiales.
+
 </p>
 
 <button
-id="abrirInvitacion"
-class="boton-abrir"
-disabled>
+class="boton-video"
+id="verVideo">
 
-Cargando invitación...
+Ver nuestro mensaje
+
+</button>
+
+</div>
+
+
+<!-- VIDEO -->
+
+<div
+class="reproductor-boda"
+id="reproductorBoda">
+
+<div class="video-wrapper">
+
+<video
+id="videoBoda"
+controls
+playsinline
+preload="metadata">
+
+<source
+src="video-invitacion.mp4"
+type="video/mp4">
+
+Tu navegador no puede reproducir este video.
+
+</video>
+
+</div>
+
+
+<!-- APARECE CUANDO TERMINA -->
+
+<div
+class="video-final"
+id="videoFinal">
+
+<p>
+Ahora sí...
+</p>
+
+<button
+class="boton-video"
+id="abrirInvitacion">
+
+Abrir nuestra invitación
 
 </button>
 
@@ -1074,6 +1207,15 @@ Cargando invitación...
 
 </div>
 
+
+</div>
+
+</div>
+
+
+<!-- =====================================
+     MÚSICA
+===================================== -->
 
 <div
 id="youtube-player"
@@ -1276,6 +1418,8 @@ Nuestro Gran Día
 <div class="tarjetas">
 
 
+<!-- CEREMONIA -->
+
 <div class="tarjeta">
 
 <div class="icono">
@@ -1318,6 +1462,8 @@ Ver ubicación
 
 </div>
 
+
+<!-- RECEPCIÓN -->
 
 <div class="tarjeta">
 
@@ -1385,8 +1531,6 @@ acompañarnos con vestimenta formal.
 
 </p>
 
-
-<!-- COLORES RESERVADOS -->
 
 <div class="colores-novios">
 
@@ -1667,13 +1811,9 @@ de la historia de nuestro gran día.
 </p>
 
 <a
-
 href="https://pov.camera/qr/DA5F7D27-D525-4480-BC36-E355A8775EF0"
-
 class="boton"
-
 target="_blank"
-
 rel="noopener noreferrer">
 
 Captura un recuerdo
@@ -1765,13 +1905,9 @@ en este día tan especial.
 </p>
 
 <a
-
 href="https://docs.google.com/forms/d/e/1FAIpQLSeEP-mimgP5zfKe4mhEwjb7iPlhFYDIfb_6I7_ir6myQ2Nxxg/viewform?usp=header"
-
 class="boton"
-
 target="_blank"
-
 rel="noopener noreferrer">
 
 Confirmar asistencia
@@ -1805,6 +1941,86 @@ CANTARES 3:4
 
 
 <script>
+
+
+/* =====================================
+   ELEMENTOS DEL VIDEO
+===================================== */
+
+const videoIntro =
+document.getElementById("videoIntro");
+
+const antesVideo =
+document.getElementById("antesVideo");
+
+const verVideo =
+document.getElementById("verVideo");
+
+const reproductorBoda =
+document.getElementById("reproductorBoda");
+
+const videoBoda =
+document.getElementById("videoBoda");
+
+const videoFinal =
+document.getElementById("videoFinal");
+
+const abrirInvitacion =
+document.getElementById("abrirInvitacion");
+
+
+/* =====================================
+   MOSTRAR VIDEO
+===================================== */
+
+verVideo.addEventListener(
+"click",
+function(){
+
+antesVideo.style.display =
+"none";
+
+reproductorBoda
+.classList
+.add(
+"activo"
+);
+
+videoBoda
+.play()
+.catch(
+function(){
+
+/*
+Si el navegador no permite
+reproducción automática,
+el usuario puede tocar Play
+en el reproductor.
+*/
+
+}
+);
+
+}
+);
+
+
+/* =====================================
+   CUANDO TERMINA EL VIDEO
+===================================== */
+
+videoBoda.addEventListener(
+"ended",
+function(){
+
+videoFinal
+.classList
+.add(
+"visible"
+);
+
+}
+);
 
 
 /* =====================================
@@ -1981,24 +2197,16 @@ if(
 diferencia <= 0
 ){
 
-document
-.getElementById("dias")
-.innerHTML =
+document.getElementById("dias").innerHTML =
 "00";
 
-document
-.getElementById("horas")
-.innerHTML =
+document.getElementById("horas").innerHTML =
 "00";
 
-document
-.getElementById("minutos")
-.innerHTML =
+document.getElementById("minutos").innerHTML =
 "00";
 
-document
-.getElementById("segundos")
-.innerHTML =
+document.getElementById("segundos").innerHTML =
 "00";
 
 return;
@@ -2008,89 +2216,41 @@ return;
 
 const dias =
 Math.floor(
-
 diferencia /
-
-(
-1000 *
-60 *
-60 *
-24
-)
-
+(1000 * 60 * 60 * 24)
 );
 
 
 const horas =
 Math.floor(
-
 (
-
 diferencia %
-
-(
-1000 *
-60 *
-60 *
-24
+(1000 * 60 * 60 * 24)
 )
-
-)
-
 /
-
-(
-1000 *
-60 *
-60
-)
-
+(1000 * 60 * 60)
 );
 
 
 const minutos =
 Math.floor(
-
 (
-
 diferencia %
-
-(
-1000 *
-60 *
-60
+(1000 * 60 * 60)
 )
-
-)
-
 /
-
-(
-1000 *
-60
-)
-
+(1000 * 60)
 );
 
 
 const segundos =
 Math.floor(
-
 (
-
 diferencia %
-
-(
-1000 *
-60
+(1000 * 60)
 )
-
-)
-
 /
-
 1000
-
 );
 
 
@@ -2134,13 +2294,9 @@ String(segundos)
 
 actualizarContador();
 
-
 setInterval(
-
 actualizarContador,
-
 1000
-
 );
 
 
@@ -2160,18 +2316,14 @@ new IntersectionObserver(
 
 entradas => {
 
-entradas
-.forEach(
-
+entradas.forEach(
 entrada => {
 
 if(
-entrada
-.isIntersecting
+entrada.isIntersecting
 ){
 
-entrada
-.target
+entrada.target
 .classList
 .add(
 "visible"
@@ -2180,7 +2332,6 @@ entrada
 }
 
 }
-
 );
 
 },
@@ -2192,18 +2343,14 @@ threshold:.15
 );
 
 
-elementos
-.forEach(
-
+elementos.forEach(
 elemento => {
 
-observer
-.observe(
+observer.observe(
 elemento
 );
 
 }
-
 );
 
 
@@ -2211,26 +2358,10 @@ elemento
    MÚSICA
 ===================================== */
 
-const botonAbrir =
-document
-.getElementById(
-"abrirInvitacion"
-);
-
-
-const entrada =
-document
-.getElementById(
-"entrada"
-);
-
-
 const botonMusica =
-document
-.getElementById(
+document.getElementById(
 "botonMusica"
 );
-
 
 let reproductor;
 
@@ -2240,21 +2371,19 @@ false;
 let youtubeListo =
 false;
 
+let invitacionAbierta =
+false;
+
 
 const youtubeScript =
-document
-.createElement(
+document.createElement(
 "script"
 );
-
 
 youtubeScript.src =
 "https://www.youtube.com/iframe_api";
 
-
-document
-.head
-.appendChild(
+document.head.appendChild(
 youtubeScript
 );
 
@@ -2298,120 +2427,110 @@ function(){
 youtubeListo =
 true;
 
-
-reproductor
-.setVolume(
+reproductor.setVolume(
 35
 );
 
 
-botonAbrir
-.disabled =
-false;
-
-
-botonAbrir
-.innerHTML =
-"Abrir invitación ♫";
-
-}
-
-}
-
-}
-
-);
-
-}
-
-
-/* FALLBACK SI YOUTUBE TARDA */
-
-setTimeout(
-
-function(){
+/*
+Si la invitación ya fue abierta
+cuando YouTube termina de cargar,
+mostramos el botón de música.
+*/
 
 if(
-!youtubeListo
+invitacionAbierta
 ){
 
-botonAbrir
-.disabled =
-false;
-
-
-botonAbrir
-.innerHTML =
-"Abrir invitación";
+botonMusica.style.display =
+"block";
 
 }
 
-},
+}
 
-5000
+}
+
+}
 
 );
+
+}
 
 
 /* =====================================
-   ABRIR INVITACIÓN
+   ABRIR INVITACIÓN DESPUÉS DEL VIDEO
 ===================================== */
 
-botonAbrir
-.addEventListener(
-
+abrirInvitacion.addEventListener(
 "click",
-
 function(){
 
-entrada
+invitacionAbierta =
+true;
+
+
+/* Detener video */
+
+videoBoda.pause();
+
+videoBoda.currentTime =
+videoBoda.duration || 0;
+
+
+/* Ocultar pantalla del video */
+
+videoIntro
 .classList
 .add(
-"oculta"
+"oculto"
 );
 
 
-document
-.body
+/* Permitir desplazamiento */
+
+document.body
 .classList
 .remove(
 "bloqueado"
 );
 
 
+/* Ir arriba de la invitación */
+
+window.scrollTo(
+{
+top:0,
+behavior:"instant"
+}
+);
+
+
+/* Iniciar música */
+
 if(
 reproductor &&
 youtubeListo
 ){
 
-botonMusica
-.style
-.display =
+botonMusica.style.display =
 "block";
 
-
-reproductor
-.setVolume(
+reproductor.setVolume(
 35
 );
 
-
-reproductor
-.playVideo();
-
+reproductor.playVideo();
 
 musicaActiva =
 true;
 
-
-botonMusica
-.innerHTML =
+botonMusica.innerHTML =
 "❚❚";
 
 }
 
 }
-
 );
 
 
@@ -2419,11 +2538,8 @@ botonMusica
    PAUSAR / REPRODUCIR MÚSICA
 ===================================== */
 
-botonMusica
-.addEventListener(
-
+botonMusica.addEventListener(
 "click",
-
 function(){
 
 if(
@@ -2439,16 +2555,12 @@ if(
 musicaActiva
 ){
 
-reproductor
-.pauseVideo();
-
+reproductor.pauseVideo();
 
 musicaActiva =
 false;
 
-
-botonMusica
-.innerHTML =
+botonMusica.innerHTML =
 "♫";
 
 }
@@ -2456,28 +2568,21 @@ botonMusica
 
 else{
 
-reproductor
-.playVideo();
+reproductor.playVideo();
 
-
-reproductor
-.setVolume(
+reproductor.setVolume(
 35
 );
-
 
 musicaActiva =
 true;
 
-
-botonMusica
-.innerHTML =
+botonMusica.innerHTML =
 "❚❚";
 
 }
 
 }
-
 );
 
 
