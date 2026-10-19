@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Carlos & Pamela | Nuestra Boda</title>
@@ -20,6 +19,9 @@
   --rosa-claro: #edcabc;
   --marfil: #f7f5f0;
   --blanco: #ffffff;
+
+  --verde-botella: #183C35;
+  --palo-rosa: #CC9988;
 }
 
 * {
@@ -51,7 +53,6 @@ body.bloqueado {
 .entrada {
   position: fixed;
   inset: 0;
-
   width: 100%;
   height: 100%;
 
@@ -69,7 +70,6 @@ body.bloqueado {
   justify-content: center;
 
   text-align: center;
-
   color: white;
 
   padding: 25px;
@@ -104,7 +104,6 @@ body.bloqueado {
   justify-content: center;
 
   font-family: 'Cormorant Garamond', serif;
-
   font-size: 48px;
 
   color: var(--rosa-claro);
@@ -112,7 +111,6 @@ body.bloqueado {
 
 .entrada-pequeno {
   text-transform: uppercase;
-
   letter-spacing: 5px;
 
   font-size: 11px;
@@ -124,21 +122,15 @@ body.bloqueado {
 
 .entrada h1 {
   font-family: 'Cormorant Garamond', serif;
-
   font-size: clamp(55px, 13vw, 90px);
-
   font-weight: 500;
-
   line-height: .9;
 }
 
 .entrada-amp {
   display: block;
-
   color: var(--rosa-claro);
-
   font-size: .65em;
-
   margin: 14px 0;
 }
 
@@ -146,9 +138,7 @@ body.bloqueado {
   margin-top: 30px;
 
   font-family: 'Cormorant Garamond', serif;
-
   font-size: 23px;
-
   letter-spacing: 3px;
 }
 
@@ -156,9 +146,7 @@ body.bloqueado {
   margin-top: 38px;
 
   border: 1px solid var(--rosa-claro);
-
   background: transparent;
-
   color: white;
 
   padding: 16px 30px;
@@ -166,9 +154,7 @@ body.bloqueado {
   font-family: 'Montserrat', sans-serif;
 
   text-transform: uppercase;
-
   letter-spacing: 3px;
-
   font-size: 10px;
 
   cursor: pointer;
@@ -178,13 +164,11 @@ body.bloqueado {
 
 .boton-abrir:hover {
   background: var(--rosa-claro);
-
   color: var(--azul-oscuro);
 }
 
 .boton-abrir:disabled {
   opacity: .5;
-
   cursor: default;
 }
 
@@ -276,11 +260,9 @@ body.bloqueado {
   height: 115px;
 
   border: 1px solid var(--rosa-claro);
-
   border-radius: 50%;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
@@ -295,11 +277,8 @@ body.bloqueado {
 
 .hero .intro {
   text-transform: uppercase;
-
   letter-spacing: 5px;
-
   font-size: 12px;
-
   margin-bottom: 15px;
 }
 
@@ -342,10 +321,7 @@ body.bloqueado {
 
   letter-spacing: 2px;
 
-  animation:
-    subirBajar
-    2s
-    infinite;
+  animation: subirBajar 2s infinite;
 }
 
 @keyframes subirBajar {
@@ -503,9 +479,7 @@ h2 {
 
   padding: 45px 25px;
 
-  border-top:
-    4px solid
-    var(--rosa);
+  border-top: 4px solid var(--rosa);
 
   box-shadow:
     0 8px 30px
@@ -539,9 +513,7 @@ h2 {
 
   padding-top: 18px;
 
-  border-top:
-    1px solid
-    var(--rosa-claro);
+  border-top: 1px solid var(--rosa-claro);
 
   font-family: 'Cormorant Garamond', serif;
 
@@ -611,6 +583,89 @@ h2 {
 }
 
 
+/* COLORES RESERVADOS PARA LOS NOVIOS */
+
+.colores-novios {
+  max-width: 520px;
+
+  margin: 40px auto 0;
+
+  padding-top: 30px;
+
+  border-top: 1px solid rgba(255,255,255,.25);
+}
+
+.colores-novios-titulo {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 25px;
+
+  color: var(--rosa-claro);
+
+  margin-bottom: 22px;
+}
+
+.colores-circulos {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+
+  gap: 28px;
+
+  flex-wrap: wrap;
+}
+
+.color-item {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+.color-circulo {
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 4px 14px
+    rgba(0,0,0,.22);
+}
+
+.color-verde {
+  background: var(--verde-botella);
+
+  border: 2px solid rgba(255,255,255,.35);
+}
+
+.color-blanco {
+  background: #ffffff;
+
+  border: 2px solid #d8d8d8;
+}
+
+.color-palo-rosa {
+  background: var(--palo-rosa);
+
+  border: 2px solid rgba(255,255,255,.35);
+}
+
+.color-nombre {
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.5px;
+
+  color: white;
+}
+
+
 /* =====================================
    PRESENTE
 ===================================== */
@@ -633,7 +688,7 @@ h2 {
 
 
 /* =====================================
-   GALERÍA DE FOTOS
+   GALERÍA
 ===================================== */
 
 .galeria {
@@ -680,9 +735,6 @@ h2 {
 .foto:hover img {
   transform: scale(1.04);
 }
-
-
-/* FOTO 7 CENTRADA */
 
 .foto:last-child {
   grid-column: 2;
@@ -803,9 +855,7 @@ h2 {
 
   padding: 45px 25px;
 
-  border:
-    1px solid
-    var(--rosa-claro);
+  border: 1px solid var(--rosa-claro);
 
   background: var(--marfil);
 
@@ -939,8 +989,7 @@ footer h2 {
   }
 
   .fotos {
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns: repeat(2,1fr);
 
     gap: 9px;
   }
@@ -948,14 +997,22 @@ footer h2 {
   .foto:last-child {
     grid-column: 1 / 3;
 
-    width:
-      calc(50% - 5px);
+    width: calc(50% - 5px);
 
     justify-self: center;
   }
 
   .contador {
     gap: 4px;
+  }
+
+  .colores-circulos {
+    gap: 20px;
+  }
+
+  .color-circulo {
+    width: 52px;
+    height: 52px;
   }
 
   section {
@@ -976,9 +1033,7 @@ footer h2 {
      PANTALLA INICIAL
 ===================================== -->
 
-<div
-class="entrada"
-id="entrada">
+<div class="entrada" id="entrada">
 
 <div class="entrada-contenido">
 
@@ -986,11 +1041,9 @@ id="entrada">
 C&P
 </div>
 
-
 <p class="entrada-pequeno">
 Nuestra boda
 </p>
-
 
 <h1>
 
@@ -1004,13 +1057,9 @@ Pamela
 
 </h1>
 
-
 <p class="entrada-fecha">
-
 19 · 12 · 2026
-
 </p>
-
 
 <button
 id="abrirInvitacion"
@@ -1048,16 +1097,13 @@ aria-label="Pausar o reproducir música">
 
 <header class="hero">
 
-
 <div class="monograma">
 C&P
 </div>
 
-
 <p class="intro">
 Nuestra boda
 </p>
-
 
 <h1>
 
@@ -1071,20 +1117,13 @@ Pamela
 
 </h1>
 
-
 <p class="fecha">
-
 19 · 12 · 2026
-
 </p>
 
-
 <div class="scroll">
-
 DESLIZA ↓
-
 </div>
-
 
 </header>
 
@@ -1097,27 +1136,17 @@ DESLIZA ↓
 
 <div class="contenedor revelar">
 
-
 <p class="subtitulo">
-
 Llegó nuestro momento
-
 </p>
 
-
 <h2>
-
 Nos Casamos
-
 </h2>
 
-
 <div class="ornamento">
-
 ❦
-
 </div>
-
 
 <p class="frase">
 
@@ -1127,13 +1156,9 @@ los convierte en inolvidables.”
 
 </p>
 
-
 <div class="ornamento">
-
 ❦
-
 </div>
-
 
 <p class="texto">
 
@@ -1149,7 +1174,6 @@ de nuestras vidas.
 
 </p>
 
-
 </div>
 
 </section>
@@ -1161,41 +1185,27 @@ de nuestras vidas.
 
 <section class="contador-seccion">
 
-
 <div class="contenedor revelar">
 
-
 <p class="subtitulo">
-
 Falta muy poco
-
 </p>
 
-
 <h2>
-
 Cuenta Regresiva
-
 </h2>
-
 
 <div class="contador">
 
 
 <div>
 
-<div
-class="numero"
-id="dias">
-
+<div class="numero" id="dias">
 00
-
 </div>
 
 <div class="etiqueta">
-
 Días
-
 </div>
 
 </div>
@@ -1203,18 +1213,12 @@ Días
 
 <div>
 
-<div
-class="numero"
-id="horas">
-
+<div class="numero" id="horas">
 00
-
 </div>
 
 <div class="etiqueta">
-
 Horas
-
 </div>
 
 </div>
@@ -1222,18 +1226,12 @@ Horas
 
 <div>
 
-<div
-class="numero"
-id="minutos">
-
+<div class="numero" id="minutos">
 00
-
 </div>
 
 <div class="etiqueta">
-
 Minutos
-
 </div>
 
 </div>
@@ -1241,18 +1239,12 @@ Minutos
 
 <div>
 
-<div
-class="numero"
-id="segundos">
-
+<div class="numero" id="segundos">
 00
-
 </div>
 
 <div class="etiqueta">
-
 Segundos
-
 </div>
 
 </div>
@@ -1260,9 +1252,7 @@ Segundos
 
 </div>
 
-
 </div>
-
 
 </section>
 
@@ -1273,158 +1263,96 @@ Segundos
 
 <section class="eventos">
 
-
 <div class="contenedor revelar">
 
-
 <p class="subtitulo">
-
 Acompáñanos
-
 </p>
 
-
 <h2>
-
 Nuestro Gran Día
-
 </h2>
-
 
 <div class="tarjetas">
 
 
-<!-- CEREMONIA -->
-
-
 <div class="tarjeta">
 
-
 <div class="icono">
-
 ♙
-
 </div>
 
-
 <h3>
-
 Ceremonia
-
 </h3>
 
-
 <p>
-
 <strong>
-
 2:00 p. m.
-
 </strong>
-
 </p>
 
-
 <p>
-
 Iglesia Parroquial
-
 <br>
-
 Tambor de Alajuela
-
 </p>
-
 
 <p>
-
 Sábado 19 de diciembre de 2026
-
 </p>
-
 
 <p class="aviso-ceremonia">
-
 Agradecemos nos acompañen desde la ceremonia.
-
 </p>
 
-
 <a
-
 class="boton"
-
 href="https://maps.app.goo.gl/EBCR6fdzytvMvG4w5"
-
 target="_blank"
-
 rel="noopener noreferrer">
 
 Ver ubicación
 
 </a>
 
-
 </div>
-
-
-<!-- RECEPCIÓN -->
 
 
 <div class="tarjeta">
 
-
 <div class="icono">
-
 ◇
-
 </div>
 
-
 <h3>
-
 Recepción
-
 </h3>
 
-
 <p>
-
 Después de la ceremonia
-
 </p>
-
 
 <p>
-
 Celebraremos juntos este momento tan especial.
-
 </p>
-
 
 <a
-
 class="boton"
-
 href="https://maps.app.goo.gl/CaPbQP1ztW61NnxFA"
-
 target="_blank"
-
 rel="noopener noreferrer">
 
 Ver ubicación
 
 </a>
 
-
 </div>
 
 
 </div>
 
-
 </div>
-
 
 </section>
 
@@ -1435,23 +1363,15 @@ Ver ubicación
 
 <section class="vestimenta">
 
-
 <div class="contenedor revelar">
 
-
 <h2>
-
 Código de vestimenta
-
 </h2>
 
-
 <p class="formal">
-
 Formal
-
 </p>
-
 
 <p class="texto">
 
@@ -1466,8 +1386,59 @@ acompañarnos con vestimenta formal.
 </p>
 
 
+<!-- COLORES RESERVADOS -->
+
+<div class="colores-novios">
+
+<p class="colores-novios-titulo">
+
+Déjanos estos colores para los novios
+
+</p>
+
+
+<div class="colores-circulos">
+
+
+<div class="color-item">
+
+<div class="color-circulo color-verde"></div>
+
+<span class="color-nombre">
+Verde botella
+</span>
+
 </div>
 
+
+<div class="color-item">
+
+<div class="color-circulo color-blanco"></div>
+
+<span class="color-nombre">
+Blanco
+</span>
+
+</div>
+
+
+<div class="color-item">
+
+<div class="color-circulo color-palo-rosa"></div>
+
+<span class="color-nombre">
+Palo rosa
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
 
 </section>
 
@@ -1478,30 +1449,19 @@ acompañarnos con vestimenta formal.
 
 <section class="regalo">
 
-
 <div class="contenedor revelar">
 
-
 <p class="subtitulo">
-
 Un detalle especial
-
 </p>
 
-
 <h2>
-
 Con Cariño
-
 </h2>
 
-
 <div class="ornamento">
-
 ❦
-
 </div>
-
 
 <p class="frase-regalo">
 
@@ -1510,9 +1470,7 @@ puede ser en efectivo.
 
 </p>
 
-
 </div>
-
 
 </section>
 
@@ -1523,23 +1481,15 @@ puede ser en efectivo.
 
 <section class="galeria">
 
-
 <div class="contenedor revelar">
 
-
 <p class="subtitulo">
-
 Nuestra historia
-
 </p>
 
-
 <h2>
-
 Nuestros Momentos
-
 </h2>
-
 
 <p class="texto">
 
@@ -1638,9 +1588,7 @@ loading="lazy">
 
 </div>
 
-
 </div>
-
 
 </section>
 
@@ -1654,7 +1602,6 @@ class="lightbox"
 id="lightbox"
 onclick="cerrarFoto(event)">
 
-
 <span
 class="cerrar-lightbox"
 onclick="cerrarFoto(event)">
@@ -1663,25 +1610,21 @@ onclick="cerrarFoto(event)">
 
 </span>
 
-
 <img
 id="fotoGrande"
 src=""
 alt="Fotografía de Carlos y Pamela">
 
-
 </div>
 
 
 <!-- =====================================
-     POV - FOTOS DE LOS INVITADOS
+     POV
 ===================================== -->
 
 <section class="pov">
 
-
 <div class="contenedor revelar">
-
 
 <p class="subtitulo">
 
@@ -1689,20 +1632,15 @@ Nuestra historia también se verá a través de tus ojos
 
 </p>
 
-
 <h2>
 
 Ayúdanos a guardar cada recuerdo
 
 </h2>
 
-
 <div class="ornamento">
-
 ❦
-
 </div>
-
 
 <p class="texto">
 
@@ -1728,7 +1666,6 @@ de la historia de nuestro gran día.
 
 </p>
 
-
 <a
 
 href="https://pov.camera/qr/DA5F7D27-D525-4480-BC36-E355A8775EF0"
@@ -1743,9 +1680,7 @@ Captura un recuerdo
 
 </a>
 
-
 </div>
-
 
 </section>
 
@@ -1756,42 +1691,29 @@ Captura un recuerdo
 
 <section class="cupos">
 
-
 <div class="contenedor revelar">
 
-
 <p class="subtitulo">
-
 Tu invitación
-
 </p>
 
-
 <h2>
-
 Tu invitación especial
-
 </h2>
-
 
 <div class="tarjeta-cupos">
 
-
 <div
-
 class="nombre-invitado"
-
 id="nombreInvitado">
 
 Invitado especial
 
 </div>
 
-
 <p class="cupos-mensaje">
 
 Con mucho cariño hemos reservado
-
 
 <span
 class="cupos-numero"
@@ -1801,7 +1723,6 @@ id="numeroCupos">
 
 </span>
 
-
 <span
 class="cupos-palabra"
 id="textoCupos">
@@ -1810,15 +1731,11 @@ espacio para usted
 
 </span>
 
-
 </p>
 
-
 </div>
 
-
 </div>
-
 
 </section>
 
@@ -1829,23 +1746,15 @@ espacio para usted
 
 <section class="confirmacion">
 
-
 <div class="contenedor revelar">
 
-
 <p class="subtitulo">
-
 Queremos celebrar contigo
-
 </p>
 
-
 <h2>
-
 Confirma tu Asistencia
-
 </h2>
-
 
 <p class="texto">
 
@@ -1854,7 +1763,6 @@ si podremos contar con tu compañía
 en este día tan especial.
 
 </p>
-
 
 <a
 
@@ -1870,9 +1778,7 @@ Confirmar asistencia
 
 </a>
 
-
 </div>
-
 
 </section>
 
@@ -1883,27 +1789,17 @@ Confirmar asistencia
 
 <footer>
 
-
 <h2>
-
 Carlos & Pamela
-
 </h2>
 
-
 <p class="versiculo-final">
-
 CANTARES 3:4
-
 </p>
-
 
 <p class="fecha-final">
-
 19 · DICIEMBRE · 2026
-
 </p>
-
 
 </footer>
 
@@ -1915,18 +1811,15 @@ CANTARES 3:4
    NOMBRE Y CUPOS
 ===================================== */
 
-
 const parametros =
 new URLSearchParams(
 window.location.search
 );
 
-
 const nombre =
 parametros.get(
 "nombre"
 );
-
 
 const cupos =
 parseInt(
@@ -2002,7 +1895,6 @@ document
    GALERÍA
 ===================================== */
 
-
 function abrirFoto(ruta){
 
 const lightbox =
@@ -2011,24 +1903,20 @@ document
 "lightbox"
 );
 
-
 const fotoGrande =
 document
 .getElementById(
 "fotoGrande"
 );
 
-
 fotoGrande.src =
 ruta;
-
 
 lightbox
 .classList
 .add(
 "activo"
 );
-
 
 document
 .body
@@ -2050,7 +1938,6 @@ return;
 
 }
 
-
 document
 .getElementById(
 "lightbox"
@@ -2059,7 +1946,6 @@ document
 .remove(
 "activo"
 );
-
 
 document
 .body
@@ -2074,7 +1960,6 @@ document
    CONTADOR
 ===================================== */
 
-
 const fechaBoda =
 new Date(
 "2026-12-19T14:00:00-06:00"
@@ -2083,11 +1968,9 @@ new Date(
 
 function actualizarContador(){
 
-
 const ahora =
 new Date()
 .getTime();
-
 
 const diferencia =
 fechaBoda -
@@ -2103,24 +1986,20 @@ document
 .innerHTML =
 "00";
 
-
 document
 .getElementById("horas")
 .innerHTML =
 "00";
-
 
 document
 .getElementById("minutos")
 .innerHTML =
 "00";
 
-
 document
 .getElementById("segundos")
 .innerHTML =
 "00";
-
 
 return;
 
@@ -2269,7 +2148,6 @@ actualizarContador,
    ANIMACIONES
 ===================================== */
 
-
 const elementos =
 document
 .querySelectorAll(
@@ -2333,7 +2211,6 @@ elemento
    MÚSICA
 ===================================== */
 
-
 const botonAbrir =
 document
 .getElementById(
@@ -2357,10 +2234,8 @@ document
 
 let reproductor;
 
-
 let musicaActiva =
 false;
-
 
 let youtubeListo =
 false;
@@ -2450,6 +2325,8 @@ botonAbrir
 }
 
 
+/* FALLBACK SI YOUTUBE TARDA */
+
 setTimeout(
 
 function(){
@@ -2479,7 +2356,6 @@ botonAbrir
 /* =====================================
    ABRIR INVITACIÓN
 ===================================== */
-
 
 botonAbrir
 .addEventListener(
@@ -2542,7 +2418,6 @@ botonMusica
 /* =====================================
    PAUSAR / REPRODUCIR MÚSICA
 ===================================== */
-
 
 botonMusica
 .addEventListener(
@@ -2607,7 +2482,6 @@ botonMusica
 
 
 </script>
-
 
 </body>
 
